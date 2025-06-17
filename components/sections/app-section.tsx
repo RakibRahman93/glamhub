@@ -1,12 +1,11 @@
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Smartphone, Download } from "lucide-react"
-import { AnimatedSection } from "@/components/ui/animated-section"
+import { AnimatedSection } from "@/components/ui/animated-section";
+import { Button } from "@/components/ui/button";
+import { Download } from "lucide-react";
 
 export function AppSection() {
   return (
-    <section className="py-20 bg-gradient-to-br from-amber-50 to-orange-50">
-      <div className="container mx-auto px-4">
+    <section className="py-20 ">
+      <div className="container mx-auto px-4 bg-gradient-to-br from-amber-50 to-orange-50">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <AnimatedSection>
             <div className="space-y-6">
@@ -16,8 +15,9 @@ export function AppSection() {
                 <span className="text-saloon-brown">POCKET</span>
               </h2>
               <p className="font-gilroy-regular text-gray-600 text-lg leading-relaxed">
-                Download our mobile app for easy booking, exclusive offers, and seamless salon experience. Available on
-                both iOS and Android platforms with user-friendly interface.
+                Download our mobile app for easy booking, exclusive offers, and
+                seamless salon experience. Available on both iOS and Android
+                platforms with user-friendly interface.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
@@ -35,7 +35,12 @@ export function AppSection() {
                 <div className="w-32 h-32 bg-white border-2 border-gray-200 rounded-lg flex items-center justify-center">
                   <div className="w-24 h-24 bg-gray-900 rounded grid grid-cols-8 gap-px p-2">
                     {Array.from({ length: 64 }).map((_, i) => (
-                      <div key={i} className={`${Math.random() > 0.5 ? "bg-white" : "bg-gray-900"} rounded-sm`} />
+                      <div
+                        key={i}
+                        className={`${
+                          Math.random() > 0.5 ? "bg-white" : "bg-gray-900"
+                        } rounded-sm`}
+                      />
                     ))}
                   </div>
                 </div>
@@ -45,7 +50,8 @@ export function AppSection() {
 
           <AnimatedSection delay={0.3}>
             <div className="flex justify-center">
-              <Card className="w-80 overflow-hidden shadow-2xl bg-saloon-brown">
+              <img src={"/images/iPhone.png"} alt="Phone" />
+              {/* <Card className="w-80 overflow-hidden shadow-2xl bg-saloon-brown">
                 <CardContent className="p-4">
                   <div className="aspect-[9/16] bg-white rounded-2xl p-4 flex flex-col">
                     <div className="h-12 bg-saloon-brown rounded-lg flex items-center justify-center mb-4">
@@ -60,11 +66,11 @@ export function AppSection() {
                     </div>
                   </div>
                 </CardContent>
-              </Card>
+              </Card> */}
             </div>
           </AnimatedSection>
         </div>
       </div>
     </section>
-  )
+  );
 }
