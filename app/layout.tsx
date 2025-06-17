@@ -1,18 +1,30 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import localFont from "next/font/local"
+
 import "./globals.css"
 
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
+const gilroy = localFont({
+  src: [
+    {
+      path: "../public/fonts/Gilroy-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/Gilroy-Bold.ttf",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-gilroy",
   display: "swap",
 })
+
 
 export const metadata: Metadata = {
   title: "Elite Saloon - Make Your Own Hair Story",
   description: "Professional hair styling and grooming services for men and women",
-    generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -22,7 +34,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={gilroy.className}>{children}</body>
     </html>
   )
 }

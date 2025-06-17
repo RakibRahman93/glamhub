@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Menu, Search, User, ShoppingBag } from "lucide-react"
-import { motion } from "framer-motion"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { motion } from "framer-motion";
+import { Menu, Search, ShoppingBag, User } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -16,20 +16,20 @@ const navigation = [
   { name: "Offers", href: "/offers" },
   // { name: "Booking", href: "/booking" },
   { name: "Contact", href: "/contact" },
-]
+];
 
 export function Header() {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const pathname = usePathname()
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <motion.header
@@ -67,13 +67,17 @@ export function Header() {
                 <Link
                   href={item.href}
                   className={`font-gilroy-medium transition-colors duration-300 relative group ${
-                    pathname === item.href ? "text-saloon-brown" : "text-saloon-brown hover:text-saloon-brown"
+                    pathname === item.href
+                      ? "text-saloon-brown"
+                      : "text-saloon-brown hover:text-saloon-brown"
                   }`}
                 >
                   {item.name}
                   <span
                     className={`absolute -bottom-1 left-0 h-0.5 bg-saloon-brown transition-all duration-300 ${
-                      pathname === item.href ? "w-full" : "w-0 group-hover:w-full"
+                      pathname === item.href
+                        ? "w-full"
+                        : "w-0 group-hover:w-full"
                     }`}
                   ></span>
                 </Link>
@@ -83,13 +87,25 @@ export function Header() {
 
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center space-x-4">
-            <Button variant="ghost" size="sm" className="text-saloon-brown hover:text-saloon-brown">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="text-saloon-brown hover:text-saloon-brown"
+            >
               <Search className="w-5 h-5" />
             </Button>
-            <Button variant="ghost" size="sm" className="text-saloon-brown hover:text-saloon-brown">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="text-saloon-brown hover:text-saloon-brown"
+            >
               <User className="w-5 h-5" />
             </Button>
-            <Button variant="ghost" size="sm" className="text-saloon-brown hover:text-saloon-brown">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="text-saloon-brown hover:text-saloon-brown"
+            >
               <ShoppingBag className="w-5 h-5" />
             </Button>
           </div>
@@ -120,7 +136,9 @@ export function Header() {
                       key={item.name}
                       href={item.href}
                       className={`font-gilroy-medium transition-colors py-2 ${
-                        pathname === item.href ? "text-saloon-brown" : "text-saloon-brown hover:text-saloon-brown"
+                        pathname === item.href
+                          ? "text-saloon-brown"
+                          : "text-saloon-brown hover:text-saloon-brown"
                       }`}
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
@@ -134,5 +152,5 @@ export function Header() {
         </div>
       </div>
     </motion.header>
-  )
+  );
 }

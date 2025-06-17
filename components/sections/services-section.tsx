@@ -1,76 +1,74 @@
-import { SectionHeading } from "@/components/ui/section-heading"
-import { ServiceCard } from "@/components/ui/service-card"
-import { AnimatedSection } from "@/components/ui/animated-section"
+import { AnimatedSection } from "@/components/ui/animated-section";
+import { SectionHeading } from "@/components/ui/section-heading";
+import { ServiceCard } from "@/components/ui/service-card";
 
 const gentsServices = [
   {
-    title: "Salon",
-    description: "Professional hair cutting and styling",
-    price: "From $25",
-    rating: 5,
-    reviews: 124,
-    logoColor: "bg-blue-600",
+    name: "Signature Style",
+    image: "/images/sinature.jpg",
+    rating: 94,
+    reviews:5,
+    description:
+      "A sanctuary of beauty and elegance, where every woman radiates confidence and style.",
   },
   {
-    title: "Barber",
-    description: "Traditional barbering services",
-    price: "From $20",
-    rating: 5,
-    reviews: 98,
-    logoColor: "bg-gray-600",
+    name: "Michael Barber Shop",
+    image: "/images/michael.jpg",
+    rating: 94,
+    reviews:5,
+    description:
+      "Where beauty blossoms—step in and let your radiance shine through personalized, luxurious treatments.",
   },
   {
-    title: "Spa",
-    description: "Relaxing spa treatments",
-    price: "From $45",
-    rating: 5,
-    reviews: 87,
-    logoColor: "bg-yellow-600",
+    name: "Barber Shop",
+    image: "/images/barbar.jpg",
+    rating: 94,
+    reviews:5,
+    description:
+      "Experience refined beauty and timeless elegance with treatments crafted to bring out your inner glow.",
   },
   {
-    title: "Massage",
-    description: "Professional massage therapy",
-    price: "From $35",
-    rating: 5,
-    reviews: 156,
-    logoColor: "bg-purple-600",
+    name: "Salona Haircut",
+    image: "/images/salon.jpg",
+    rating: 94,
+    reviews:5,
+    description: "Step into a sanctuary where radiance and relaxation meet.",
   },
-]
+];
 
 const womenServices = [
   {
-    title: "Maya's",
-    description: "Premium women's salon",
-    price: "From $40",
-    rating: 5,
-    reviews: 203,
-    logoColor: "bg-pink-600",
+    name: `Maya’s Beauty Icons`,
+    image: "/images/maya.jpg",
+    rating: 94,
+    reviews:5,
+    description:
+      "A sanctuary of beauty and elegance, where every woman radiates confidence and style.",
   },
   {
-    title: "Lashes",
-    description: "Eyelash extensions & treatments",
-    price: "From $30",
-    rating: 5,
-    reviews: 145,
-    logoColor: "bg-orange-600",
+    name: "Lashes Beauty & Hair",
+    image: "/images/lashcs.jpg",
+    rating: 94,
+    reviews:5,
+    description:
+      "Where beauty blossoms—step in and let your radiance shine through personalized, luxurious treatments. ",
   },
   {
-    title: "Hair Studio",
-    description: "Creative hair styling",
-    price: "From $50",
-    rating: 5,
-    reviews: 178,
-    logoColor: "bg-green-600",
+    name: "Elegance Essence",
+    image: "/images/elegench.jpg",
+    rating: 94,
+    reviews:5,
+    description:
+      "Experience refined beauty and timeless elegance with treatments crafted to bring out your inner glow.",
   },
   {
-    title: "Beauty",
-    description: "Complete beauty services",
-    price: "From $35",
-    rating: 5,
-    reviews: 234,
-    logoColor: "bg-blue-800",
+    name: "Radiant Realm",
+    image: "/images/radiant.jpg",
+    rating: 94,
+    reviews:5,
+    description: "Step into a sanctuary where radiance and relaxation meet.",
   },
-]
+];
 
 export function ServicesSection() {
   return (
@@ -85,14 +83,13 @@ export function ServicesSection() {
             {gentsServices.map((service, index) => (
               <AnimatedSection key={index} delay={index * 0.1}>
                 <ServiceCard
-                  title={service.title}
+                  title={service.name}
                   description={service.description}
-                  price={service.price}
                   rating={service.rating}
                   reviews={service.reviews}
-                  image="/placeholder.svg"
+                  image={service.image}
                   variant="gents"
-                  logoColor={service.logoColor}
+                 
                 />
               </AnimatedSection>
             ))}
@@ -108,14 +105,13 @@ export function ServicesSection() {
             {womenServices.map((service, index) => (
               <AnimatedSection key={index} delay={index * 0.1}>
                 <ServiceCard
-                  title={service.title}
+                  title={service.name}
                   description={service.description}
-                  price={service.price}
                   rating={service.rating}
                   reviews={service.reviews}
-                  image="/placeholder.svg"
+                  image={service.image}
                   variant="women"
-                  logoColor={service.logoColor}
+                  
                 />
               </AnimatedSection>
             ))}
@@ -123,5 +119,5 @@ export function ServicesSection() {
         </AnimatedSection>
       </div>
     </section>
-  )
+  );
 }
