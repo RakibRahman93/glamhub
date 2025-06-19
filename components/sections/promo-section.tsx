@@ -1,30 +1,43 @@
-import { Button } from "@/components/ui/button"
-import { AnimatedSection } from "@/components/ui/animated-section"
+import { AnimatedSection } from "@/components/ui/animated-section";
+import { Button } from "@/components/ui/button";
 
 export function PromoSection() {
   return (
-    <section className="py-20 bg-gray-900 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('/placeholder.svg?height=400&width=1200')] bg-cover bg-center opacity-30" />
+    <section className="py-24 bg-gray-900 relative overflow-hidden">
+      <div className="absolute inset-0 bg-[url('/images/salon-bg.jpg')] bg-cover bg-center opacity-30" />
 
       <div className="container mx-auto px-4 relative z-10">
         <AnimatedSection>
-          <div className="text-center text-white max-w-4xl mx-auto">
-            <h2 className="font-gilroy-bold text-4xl md:text-5xl lg:text-6xl mb-6">
-              GET <span className="text-saloon-gold">30% OFF</span> ON YOUR FIRST BOOKING
+          <div className="text-center text-white max-w-5xl mx-auto">
+            <h2 className="font-gilroy-bold text-4xl md:text-5xl  mb-6">
+              GET 30% OFF ON YOUR FIRST BOOKING
             </h2>
-            <p className="font-gilroy-regular text-xl text-gray-300 mb-8 leading-relaxed max-w-2xl mx-auto">
-              New customers enjoy exclusive discounts on all our premium services. Book your appointment today and
-              experience luxury grooming at its finest.
+            <p className="font-gilroy-regular text-xl text-[##D6D6D6] mb-8 leading-relaxed mx-auto">
+              Discover a full range of grooming and spa services tailored for
+              both men and women, delivered by skilled professionals at salons
+              or in the comfort of your home.
             </p>
-            <Button
-              size="lg"
-              className="bg-saloon-brown hover:bg-saloon-dark-brown text-white px-12 py-4 text-xl font-gilroy-medium"
-            >
-              Book Appointment
-            </Button>
+            <div className="flex justify-center mb-8">
+              <div className="flex items-center gap-3">
+                <Button
+                  variant={"outline"}
+                  size="sm"
+                  className="border border-bg-white hover:bg-saloon-dark-brown text-white uppercase rounded-none fon-bold"
+                >
+                  Book Now
+                </Button>
+                <Button
+                  variant={"outline"}
+                  size="sm"
+                  className="border border-bg-white hover:bg-saloon-dark-brown text-white uppercase rounded-none fon-bold"
+                >
+                  Explore Now
+                </Button>
+              </div>
+            </div>
           </div>
         </AnimatedSection>
       </div>
     </section>
-  )
+  );
 }
