@@ -1,11 +1,13 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { motion } from "framer-motion"
-import { Play } from "lucide-react"
-import "swiper/css"
-import { Autoplay } from "swiper/modules"
-import { Swiper, SwiperSlide } from "swiper/react"
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import { Play } from "lucide-react";
+import "swiper/css";
+import "swiper/css/pagination";
+import "./custom.css"
+import { Autoplay, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 export function HeroSection() {
   return (
@@ -16,12 +18,13 @@ export function HeroSection() {
       {/* Background Swiper Image Slider */}
       <div className="absolute top-0 left-0 w-full h-full z-0 opacity-20">
         <Swiper
-          modules={[Autoplay]}
+          modules={[Autoplay, Pagination]}
           autoplay={{ delay: 5000, disableOnInteraction: false }}
           loop
+          pagination={{ clickable: true }}
           spaceBetween={30}
           slidesPerView={1}
-          className="h-full"
+          className="h-full pb-12 swiper-custom"
         >
           <SwiperSlide>
             <img
@@ -102,7 +105,8 @@ export function HeroSection() {
                 <span className="text-saloon-gold">Your Unique Style</span>
               </h1>
               <p className="font-gilroy-regular text-lg md:text-xl mb-8 text-gray-300 leading-relaxed max-w-lg">
-                Personalized cuts and luxury grooming to bring out your best look.
+                Personalized cuts and luxury grooming to bring out your best
+                look.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button
@@ -158,5 +162,5 @@ export function HeroSection() {
         </Swiper>
       </div>
     </section>
-  )
+  );
 }

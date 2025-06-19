@@ -93,7 +93,7 @@
 }
 
 .bg-feature-brown {
-  background-color: #5F402B;
+  background-color: #5f402b;
 }
 
 .bg-saloon-light-brown {
@@ -105,9 +105,23 @@
 }
 
 .text-saloon-brown {
-  color: #5F402B;
+  color: #5f402b;
 }
 
 .text-saloon-gold {
   color: #daa520;
+}
+
+/* globals.css */
+
+.custom-swiper .swiper-pagination {
+  @apply absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-2 z-10;
+}
+
+.custom-swiper .swiper-pagination-bullet {
+  @apply bg-white w-5 h-4 rounded-full opacity-60 transition-all duration-300;
+}
+
+.custom-swiper .swiper-pagination-bullet-active {
+  @apply bg-saloon-brown opacity-100 scale-110;
 }

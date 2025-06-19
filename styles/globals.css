@@ -120,3 +120,17 @@ body {
   src: url("/fonts/Gilroy-Bold.ttf") format("truetype");
   font-weight: 700;
 }
+
+/* globals.css */
+
+.custom-swiper .swiper-pagination {
+  @apply absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-2 z-10;
+}
+
+.custom-swiper .swiper-pagination-bullet {
+  @apply bg-white w-3 h-3 rounded-full opacity-60 transition-all duration-300;
+}
+
+.custom-swiper .swiper-pagination-bullet-active {
+  @apply bg-saloon-brown opacity-100 scale-110;
+}
