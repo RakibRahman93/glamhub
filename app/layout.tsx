@@ -1,8 +1,15 @@
 import type React from "react"
 import type { Metadata } from "next"
 import localFont from "next/font/local"
+import { Sacramento } from 'next/font/google'
 
 import "./globals.css"
+
+const sacramento = Sacramento({
+  subsets: ['latin'],
+  weight: '400', // Sacramento only has 400
+  variable: '--font-sacramento',
+})
 
 const gilroy = localFont({
   src: [
@@ -34,7 +41,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={gilroy.className}>{children}</body>
+      <body className={`${gilroy.className} ${sacramento.variable}`}>{children}</body>
     </html>
   )
 }

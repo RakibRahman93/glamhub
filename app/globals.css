@@ -112,6 +112,10 @@
   color: #daa520;
 }
 
+.heading-sacramento {
+  font-family: var(--font-sacramento);
+}
+
 /* globals.css */
 
 .custom-swiper .swiper-pagination {

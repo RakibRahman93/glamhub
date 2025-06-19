@@ -4,8 +4,11 @@ import { SectionHeading } from "@/components/ui/section-heading";
 
 export function GallerySection() {
   return (
-    <section id="gallery" className="py-8 md:py-32 bg-white relative overflow-hidden">
-      <div className="container mx-auto px-4 bg-[#FFFAEF] py-20 ">
+    <section
+      id="gallery"
+      className="py-8 md:py-32 bg-white relative overflow-hidden"
+    >
+      <div className="container mx-auto px-4 bg-[#FFFAEF] py-20">
         <AnimatedSection>
           <SectionHeading centered className="mb-8">
             EXPLORE OUR PARLOURS
@@ -19,9 +22,9 @@ export function GallerySection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mt-14">
           <AnimatedSection>
-            <div className="space-y-4 flex flex-col items-center borer border-gray-700">
+            <div className="space-y-4 flex flex-col items-center borer  border-2 border-[#8E98A8] p-2">
               <img src="/images/model1.jpg" alt="model" />
-              <div className="bg-[#5F402B] text-center p-4">
+              <div className="bg-[#5F402B] text-center p-3">
                 <h3 className="font-gilroy-bold text-xl md:text-4xl text-white leading-tight">
                   Boys Beauty Saloon & Parlors
                 </h3>
@@ -41,9 +44,9 @@ export function GallerySection() {
           </AnimatedSection>
 
           <AnimatedSection delay={0.3}>
-            <div className="space-y-4 flex flex-col items-center">
+            <div className="space-y-4 flex flex-col items-center border-2 border-[#8E98A8] p-2">
               <img src="/images/model1.jpg" alt="model" />
-              <div className="bg-[#5F402B] text-center p-4">
+              <div className="bg-[#5F402B] text-center p-3">
                 <h3 className="font-gilroy-bold text-xl md:text-4xl text-white leading-tight">
                   Girls Beauty Saloon & Parlors
                 </h3>

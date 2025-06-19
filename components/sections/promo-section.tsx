@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 export function PromoSection() {
   return (
     <section className="py-24 bg-gray-900 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('/images/salon-bg.jpg')] bg-cover bg-center opacity-30" />
+      <div className="absolute inset-0 bg-[url('/images/saloon-bg.jpg')] bg-cover bg-center opacity-70" />
 
       <div className="container mx-auto px-4 relative z-10">
         <AnimatedSection>
