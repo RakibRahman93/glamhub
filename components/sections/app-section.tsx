@@ -9,40 +9,31 @@ export function AppSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <AnimatedSection>
             <div className="space-y-6">
-              <h2 className="font-gilroy-bold text-4xl md:text-5xl text-gray-900">
-                PICK US IN YOUR
-                <br />
-                <span className="text-saloon-brown">POCKET</span>
+              <h2 className="font-gilroy-bold text-2xl md:text-[45px] text-[#5F402B]">
+                PICK US IN YOUR POCKET
               </h2>
-              <p className="font-gilroy-regular text-gray-600 text-lg leading-relaxed">
-                Download our mobile app for easy booking, exclusive offers, and
-                seamless salon experience. Available on both iOS and Android
-                platforms with user-friendly interface.
+              <p className="font-gilroy-regular text-[#5F402B] text-lg leading-relaxed">
+                Download our mobile apps to get more good user experience.
               </p>
-
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="bg-black hover:bg-gray-800 text-white px-6 py-3 font-gilroy-medium">
-                  <Download className="w-5 h-5 mr-2" />
-                  App Store
-                </Button>
-                <Button className="bg-black hover:bg-gray-800 text-white px-6 py-3 font-gilroy-medium">
-                  <Download className="w-5 h-5 mr-2" />
-                  Google Play
-                </Button>
+              <div className="flex items-center gap-3 flex-col sm:flex-row">
+                <div className="">
+                  <img src="/images/qr-code.png" alt="qr-code" />
+                </div>
+                <div className="text-[17px] text-black max-w-md ml-6">
+                  <p>
+                    Discover a full range of grooming and spa services tailored
+                    for both men and women, delivered by skilled professionals
+                    at salons or in the comfort of your home.
+                  </p>
+                </div>
               </div>
 
-              <div className="pt-6">
-                <div className="w-32 h-32 bg-white border-2 border-gray-200 rounded-lg flex items-center justify-center">
-                  <div className="w-24 h-24 bg-gray-900 rounded grid grid-cols-8 gap-px p-2">
-                    {Array.from({ length: 64 }).map((_, i) => (
-                      <div
-                        key={i}
-                        className={`${
-                          Math.random() > 0.5 ? "bg-white" : "bg-gray-900"
-                        } rounded-sm`}
-                      />
-                    ))}
-                  </div>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <div className="">
+                  <img src="/images/apple.png" alt="qr-code" />
+                </div>
+                <div className="">
+                  <img src="/images/play-store.png" alt="qr-code" />
                 </div>
               </div>
             </div>
