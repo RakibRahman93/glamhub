@@ -1,64 +1,68 @@
-import { SectionHeading } from "@/components/ui/section-heading"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { AnimatedSection } from "@/components/ui/animated-section"
+import { AnimatedSection } from "@/components/ui/animated-section";
+import { Button } from "@/components/ui/button";
+import { SectionHeading } from "@/components/ui/section-heading";
 
 export function GallerySection() {
   return (
-    <section id="gallery" className="py-20 bg-white">
-      <div className="container mx-auto px-4">
+    <section id="gallery" className="py-8 md:py-32 bg-white relative overflow-hidden">
+      <div className="container mx-auto px-4 bg-[#FFFAEF] py-20 ">
         <AnimatedSection>
-          <SectionHeading centered className="mb-16">
+          <SectionHeading centered className="mb-8">
             EXPLORE OUR PARLOURS
           </SectionHeading>
+          <p className="font-gilroy-regular text-gray-600 text-lg leading-relaxed text-center max-w-2xl mx-auto">
+            Discover a full range of grooming and spa services tailored for both
+            men and women, delivered by skilled professionals at salons or in
+            the comfort of your home.
+          </p>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mt-14">
           <AnimatedSection>
-            <div className="space-y-6">
-              <h3 className="font-gilroy-bold text-4xl text-gray-900 leading-tight">
-                Creative Styles &<br />
-                Niche Look
-              </h3>
-              <p className="font-gilroy-regular text-gray-600 text-lg leading-relaxed">
-                Experience the artistry of professional hair styling in our modern salon environment. Our expert
-                stylists create unique looks tailored to your personality and lifestyle, ensuring you leave feeling
-                confident and beautiful.
-              </p>
-              <Button className="bg-saloon-brown hover:bg-saloon-dark-brown text-white px-8 py-4 text-lg font-gilroy-medium">
-                Book Beauty Saloon & Parlors
-              </Button>
+            <div className="space-y-4 flex flex-col items-center borer border-gray-700">
+              <img src="/images/model1.jpg" alt="model" />
+              <div className="bg-[#5F402B] text-center p-4">
+                <h3 className="font-gilroy-bold text-xl md:text-4xl text-white leading-tight">
+                  Boys Beauty Saloon & Parlors
+                </h3>
+                <p className="font-gilroy-regular text-white text-md md:text-lg leading-relaxed mt-4">
+                  Discover a full range of grooming and spa services tailored
+                  for both men and women, delivered by skilled professionals at
+                  salons or in the comfort of your home.
+                </p>
+                <Button
+                  variant={"outline"}
+                  className="bg-transparent border border-white hover:bg-saloon-dark-brown text-white px-8 py-4 text-sm font-gilroy-medium mt-4"
+                >
+                  Explore Now
+                </Button>
+              </div>
             </div>
           </AnimatedSection>
 
           <AnimatedSection delay={0.3}>
-            <div className="grid grid-cols-2 gap-6">
-              <Card className="overflow-hidden">
-                <CardContent className="p-0">
-                  <div className="aspect-[4/5] bg-gradient-to-br from-gray-200 to-gray-300">
-                    <img
-                      src="/placeholder.svg?height=500&width=400"
-                      alt="Salon interior"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                </CardContent>
-              </Card>
-              <Card className="overflow-hidden mt-8">
-                <CardContent className="p-0">
-                  <div className="aspect-[4/5] bg-gradient-to-br from-gray-200 to-gray-300">
-                    <img
-                      src="/placeholder.svg?height=500&width=400"
-                      alt="Hair styling"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                </CardContent>
-              </Card>
+            <div className="space-y-4 flex flex-col items-center">
+              <img src="/images/model1.jpg" alt="model" />
+              <div className="bg-[#5F402B] text-center p-4">
+                <h3 className="font-gilroy-bold text-xl md:text-4xl text-white leading-tight">
+                  Girls Beauty Saloon & Parlors
+                </h3>
+                <p className="font-gilroy-regular text-white text-md md:text-lg leading-relaxed mt-4">
+                  Discover a full range of grooming and spa services tailored
+                  for both men and women, delivered by skilled professionals at
+                  salons or in the comfort of your home.
+                </p>
+                <Button
+                  variant={"outline"}
+                  className="bg-transparent border border-white hover:bg-saloon-dark-brown text-white px-8 py-4 text-sm font-gilroy-medium mt-4"
+                >
+                  Explore Now
+                </Button>
+              </div>
             </div>
           </AnimatedSection>
         </div>
       </div>
     </section>
-  )
+  );
 }

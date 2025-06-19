@@ -76,7 +76,7 @@ export function Footer() {
           </div>
         </AnimatedSection>
 
-        <Separator className="my-8 bg-saloon-brown" />
+        {/* <Separator className="my-8 bg-saloon-brown" />
 
         <AnimatedSection delay={0.2}>
           <div className="flex flex-col md:flex-row justify-between items-center">
@@ -87,7 +87,7 @@ export function Footer() {
               Designed with ❤️ for beautiful hair
             </p>
           </div>
-        </AnimatedSection>
+        </AnimatedSection> */}
       </div>
     </footer>
   );
