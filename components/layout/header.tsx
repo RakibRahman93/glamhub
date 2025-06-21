@@ -10,12 +10,11 @@ import { useEffect, useState } from "react";
 
 const navigation = [
   { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Services", href: "/services" },
   { name: "Explore Saloons", href: "/explore-saloons" },
   { name: "Offers", href: "/offers" },
-  // { name: "Booking", href: "/booking" },
-  { name: "Contact", href: "/contact" },
+  { name: "Booking", href: "/booking" },
+  { name: "Services", href: "/services" },
+  { name: "Contact Us", href: "/contact" },
 ];
 
 export function Header() {
