@@ -17,7 +17,7 @@ export function HeroSection() {
       {/* Background Swiper Image Slider */}
       <div className="absolute top-0 left-0 w-full h-full z-0 opacity-20">
         <Swiper
-          modules={[Autoplay,Pagination]}
+          modules={[Autoplay, Pagination]}
           autoplay={{ delay: 5000, disableOnInteraction: false }}
           loop
           pagination={{ clickable: true }}
@@ -27,7 +27,7 @@ export function HeroSection() {
         >
           <SwiperSlide>
             <img
-              src="images/barbar.jpg"
+              src="images/slider_1.jpg"
               alt="Slide 1"
               className="w-full h-full object-cover"
             />
@@ -66,7 +66,10 @@ export function HeroSection() {
               className="max-w-2xl"
             >
               <h1 className="font-gilroy-bold text-5xl md:text-6xl lg:text-7xl mb-6 leading-tight mt-0">
-                <span className="heading-sacramento text-4xl md:text-7xl text-[#FFDFC9] -mt-4">Welcome</span> <br /> Make Your Own <br />
+                <span className="heading-sacramento text-4xl md:text-7xl text-[#FFDFC9] -mt-4">
+                  Welcome
+                </span>{" "}
+                <br /> Make Your Own <br />
                 <span className="text-white">Hair Story</span>
               </h1>
               <p className="font-gilroy-regular text-lg md:text-xl mb-8 text-gray-300 leading-relaxed max-w-lg">
