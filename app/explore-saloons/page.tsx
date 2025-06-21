@@ -4,11 +4,36 @@ import { Footer } from "@/components/sections/footer";
 import { SectionHeader } from "@/components/sections/SectionHeader";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { Button } from "@/components/ui/button";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination";
 import { ServiceCard } from "@/components/ui/service-card";
 import { gentsServices, womenServices } from "@/lib/servicesData";
-import { Gift } from "lucide-react";
+import { useState } from "react";
+
+const ITEMS_PER_PAGE = 4;
 
 export default function ExploreSaloonsPage() {
+  const [gentsPage, setGentsPage] = useState(1);
+  const gentsTotalPages = Math.ceil(gentsServices.length / ITEMS_PER_PAGE);
+
+  const [womenPage, setWomenPage] = useState(1);
+  const womenTotalPages = Math.ceil(womenServices.length / ITEMS_PER_PAGE);
+
+  const currentGents = gentsServices.slice(
+    (gentsPage - 1) * ITEMS_PER_PAGE,
+    gentsPage * ITEMS_PER_PAGE
+  );
+
+  const currentWomen = womenServices.slice(
+    (womenPage - 1) * ITEMS_PER_PAGE,
+    womenPage * ITEMS_PER_PAGE
+  );
   return (
     <>
       <Header />
@@ -46,7 +71,7 @@ export default function ExploreSaloonsPage() {
                 onButtonClick={() => console.log("Gents clicked")}
               />
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {gentsServices.map((service, index) => (
+                {currentGents.map((service, index) => (
                   <AnimatedSection key={index} delay={index * 0.1}>
                     <ServiceCard
                       title={service.name}
@@ -60,37 +85,90 @@ export default function ExploreSaloonsPage() {
                 ))}
               </div>
             </AnimatedSection>
+            {/* Pagination */}
+            <Pagination className="mt-10">
+              <PaginationContent>
+                <PaginationItem>
+                  <PaginationPrevious
+                    onClick={() =>
+                      setGentsPage((prev) => Math.max(prev - 1, 1))
+                    }
+                    className={
+                      gentsPage === 1 ? "pointer-events-none opacity-50" : ""
+                    }
+                  />
+                </PaginationItem>
+
+                {[...Array(gentsTotalPages)].map((_, index) => (
+                  <PaginationItem key={index}>
+                    <PaginationLink
+                      isActive={gentsPage === index + 1}
+                      onClick={() => setGentsPage(index + 1)}
+                    >
+                      {index + 1}
+                    </PaginationLink>
+                  </PaginationItem>
+                ))}
+
+                <PaginationItem>
+                  <PaginationNext
+                    onClick={() =>
+                      setGentsPage((prev) =>
+                        Math.min(prev + 1, gentsTotalPages)
+                      )
+                    }
+                    className={
+                      gentsPage === gentsTotalPages
+                        ? "pointer-events-none opacity-50"
+                        : ""
+                    }
+                  />
+                </PaginationItem>
+              </PaginationContent>
+            </Pagination>
           </div>
         </section>
 
         {/* Business Account Promo */}
-        <section className="py-16 bg-saloon-brown relative overflow-hidden">
+        <section className="py-16 bg-saloon-brown relative overflow-hidden bg-[url('/images/footer-bg.jpg')] bg-cover bg-center">
           <div className="absolute inset-0 opacity-10">
             <div className="absolute top-10 right-10 w-32 h-32 border border-white rounded-full"></div>
             <div className="absolute bottom-10 left-10 w-24 h-24 border border-white rounded-full"></div>
           </div>
           <div className="container mx-auto px-4 relative z-10">
-            <AnimatedSection>
-              <div className="text-center text-white max-w-3xl mx-auto">
-                <Gift className="w-16 h-16 mx-auto mb-6 text-white" />
-                <h2 className="font-gilroy-bold text-3xl md:text-4xl mb-6">
-                  WANNA OPEN YOUR OWN
-                  <br />
-                  BUSINESS ACCOUNT?
-                </h2>
-                <p className="font-gilroy-regular text-lg mb-8 text-white/90">
-                  Join our network of professional salons and barbershops. Get
-                  access to exclusive business tools, marketing support, and
-                  grow your business with us.
-                </p>
-                <Button
-                  size="lg"
-                  className="bg-white text-saloon-brown hover:bg-gray-100 px-8 py-4 text-lg font-gilroy-medium"
-                >
-                  Start Your Business
-                </Button>
+            <div className="flex flex-col md:flex-row justify-center items-center gap-4">
+              <AnimatedSection>
+                <div className="text-white max-w-3xl mx-auto">
+                  <h2 className="font-gilroy-bold text-3xl md:text-4xl mb-6">
+                    WANNA OPEN YOUR OWN
+                    <br />
+                    BUSINESS ACCOUNT?
+                  </h2>
+                  <p className="font-gilroy-regular text-lg mb-8 text-white/90 max-w-xl">
+                    Discover a full range of grooming and spa services tailored
+                    for both men and women,delivered by skilled professionals at
+                    salons or in the comfort of your home.
+                  </p>
+                  <div className="flex flex-row gap-4 items-center">
+                    <Button
+                      variant="outline"
+                      className="hover:bg-transparent hover:text-white text-white border-2 border-bg-white uppercase"
+                    >
+                      open now
+                    </Button>
+                    <Button
+                      variant="outline"
+                      className="hover:bg-transparent hover:text-white text-white border-2 border-bg-white uppercase"
+                    >
+                      know our policy
+                    </Button>
+                  </div>
+                </div>
+              </AnimatedSection>
+              <div className="">
+                <img src="/images/barber-shop.png" alt="barbar" />
               </div>
-            </AnimatedSection>
+            </div>
           </div>
         </section>
 
@@ -105,7 +183,7 @@ export default function ExploreSaloonsPage() {
               />
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {womenServices.map((service, index) => (
+                {currentWomen.map((service, index) => (
                   <AnimatedSection key={index} delay={index * 0.1}>
                     <ServiceCard
                       title={service.name}
@@ -119,6 +197,47 @@ export default function ExploreSaloonsPage() {
                 ))}
               </div>
             </AnimatedSection>
+            {/* Pagination */}
+            <Pagination className="mt-10">
+              <PaginationContent>
+                <PaginationItem>
+                  <PaginationPrevious
+                    onClick={() =>
+                      setWomenPage((prev) => Math.max(prev - 1, 1))
+                    }
+                    className={
+                      womenPage === 1 ? "pointer-events-none opacity-50" : ""
+                    }
+                  />
+                </PaginationItem>
+
+                {[...Array(womenTotalPages)].map((_, index) => (
+                  <PaginationItem key={index}>
+                    <PaginationLink
+                      isActive={womenPage === index + 1}
+                      onClick={() => setWomenPage(index + 1)}
+                    >
+                      {index + 1}
+                    </PaginationLink>
+                  </PaginationItem>
+                ))}
+
+                <PaginationItem>
+                  <PaginationNext
+                    onClick={() =>
+                      setWomenPage((prev) =>
+                        Math.min(prev + 1, womenTotalPages)
+                      )
+                    }
+                    className={
+                      womenPage === womenTotalPages
+                        ? "pointer-events-none opacity-50"
+                        : ""
+                    }
+                  />
+                </PaginationItem>
+              </PaginationContent>
+            </Pagination>
           </div>
         </section>
       </main>
