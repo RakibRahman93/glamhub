@@ -129,3 +129,22 @@
 .custom-swiper .swiper-pagination-bullet-active {
   @apply bg-saloon-brown opacity-100 scale-110;
 }
+
+.swiper-pagination-bullet {
+  width: 20px !important;
+  height: 20px !important;
+  background-color: #fff !important;
+  margin: 0 6px !important;
+  border-radius: 50% !important;
+  border: none !important;
+  border: 1px solid #5f402b;
+  z-index: 999;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #5f402b !important;
+  width: 20px !important;
+  height: 20px !important;
+  border: none !important;
+  z-index: 9999;
+}

@@ -32,7 +32,7 @@ export function HeroSection() {
           </div>
         </div>
         {/* Background Swiper Image Slider */}
-        <div className="absolute top-0 left-0 w-full h-full z-0 opacity-20">
+        <div className="absolute top-0 left-0 w-full h-full z-0 opacity-80">
           <Swiper
             modules={[Autoplay, Pagination]}
             autoplay={{ delay: 5000, disableOnInteraction: false }}
