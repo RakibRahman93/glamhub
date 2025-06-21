@@ -34,9 +34,10 @@ const footerLinks = {
 export function Footer() {
   return (
     <footer className="text-white">
-      <div className="container mx-auto px-4 py-16 bg-[url('/images/footer-bg.jpg')] bg-cover bg-center">
-        <div className="flex items-center justify-center">
+      <div className="container mx-auto px-12 py-16 bg-[url('/images/footer-bg.jpg')] bg-cover bg-center">
+       
           <AnimatedSection>
+             <div className="flex items-center justify-center">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 place-items-center">
               {/* Brand / About Section */}
               <div className="space-y-4 text-center lg:text-left">
@@ -76,6 +77,7 @@ export function Footer() {
                   </ul>
                 </div>
               ))}
+            </div>
             </div>
           </AnimatedSection>
         </div>
