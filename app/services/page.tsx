@@ -1,5 +1,6 @@
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/sections/footer";
+import { PromoSection } from "@/components/sections/promo-section";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -104,40 +105,13 @@ export default function ServicesPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-24 relative overflow-hidden mb-4">
-          <div className="container mx-auto px-4 py-24 relative z-10 bg-[url('/images/saloon-bg.jpg')] bg-cover bg-center opacity-80">
-            <AnimatedSection>
-              <div className="text-center text-white max-w-5xl mx-auto">
-                <h2 className="font-gilroy-bold text-4xl md:text-5xl  mb-6">
-                  GET 30% OFF ON YOUR FIRST BOOKING
-                </h2>
-                <p className="font-gilroy-regular text-xl text-[##D6D6D6] mb-8 leading-relaxed mx-auto">
-                  Discover a full range of grooming and spa services tailored
-                  for both men and women, delivered by skilled professionals at
-                  salons or in the comfort of your home.
-                </p>
-                <div className="flex justify-center mb-8">
-                  <div className="flex items-center gap-3">
-                    <Button
-                      variant={"outline"}
-                      size="sm"
-                      className="border border-bg-white hover:bg-saloon-dark-brown text-white uppercase rounded-none fon-bold"
-                    >
-                      Book Now
-                    </Button>
-                    <Button
-                      variant={"outline"}
-                      size="sm"
-                      className="border border-bg-white hover:bg-saloon-dark-brown text-white uppercase rounded-none fon-bold"
-                    >
-                      Explore Now
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </AnimatedSection>
-          </div>
-        </section>
+        <PromoSection
+          title="GET 30% OFF ON YOUR FIRST BOOKING"
+          description="Discover a full range of grooming and spa services tailored for both men and women, delivered by skilled professionals at salons or in the comfort of your home."
+          primaryBtnText="Book Now"
+          secondaryBtnText="Explore Now"
+          backgroundImage="/images/saloon-bg.jpg"
+        />
       </main>
       <Footer />
     </>
