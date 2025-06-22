@@ -16,7 +16,7 @@ import { ServiceCard } from "@/components/ui/service-card";
 import { gentsServices, womenServices } from "@/lib/servicesData";
 import { useState } from "react";
 
-const ITEMS_PER_PAGE = 4;
+const ITEMS_PER_PAGE = 8;
 
 export default function ExploreSaloonsPage() {
   const [gentsPage, setGentsPage] = useState(1);
@@ -130,43 +130,42 @@ export default function ExploreSaloonsPage() {
         </section>
 
         {/* Business Account Promo */}
-        <section className="py-16 bg-saloon-brown relative overflow-hidden bg-[url('/images/footer-bg.jpg')] bg-cover bg-center">
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-10 right-10 w-32 h-32 border border-white rounded-full"></div>
-            <div className="absolute bottom-10 left-10 w-24 h-24 border border-white rounded-full"></div>
-          </div>
-          <div className="container mx-auto px-4 relative z-10">
-            <div className="flex flex-col md:flex-row justify-center items-center gap-4">
-              <AnimatedSection>
-                <div className="text-white max-w-3xl mx-auto">
-                  <h2 className="font-gilroy-bold text-3xl md:text-4xl mb-6">
-                    WANNA OPEN YOUR OWN
-                    <br />
-                    BUSINESS ACCOUNT?
-                  </h2>
-                  <p className="font-gilroy-regular text-lg mb-8 text-white/90 max-w-xl">
-                    Discover a full range of grooming and spa services tailored
-                    for both men and women,delivered by skilled professionals at
-                    salons or in the comfort of your home.
-                  </p>
-                  <div className="flex flex-row gap-4 items-center">
-                    <Button
-                      variant="outline"
-                      className="hover:bg-transparent hover:text-white text-white border-2 border-bg-white uppercase"
-                    >
-                      open now
-                    </Button>
-                    <Button
-                      variant="outline"
-                      className="hover:bg-transparent hover:text-white text-white border-2 border-bg-white uppercase"
-                    >
-                      know our policy
-                    </Button>
-                  </div>
+        <section className="py-16 relative z-10">
+          <div className="container mx-auto px-4 py-16 md:px-12 bg-[url('/images/footer-bg.jpg')] bg-cover bg-center">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+              <AnimatedSection className="text-white max-w-2xl">
+                <h2 className="font-gilroy-bold text-xl md:text-4xl mb-6 leading-snug">
+                  WANNA OPEN YOUR OWN
+                  <br />
+                  BUSINESS ACCOUNT?
+                </h2>
+                <p className="font-gilroy-regular text-lg mb-8 text-white/90">
+                  Discover a full range of grooming and spa services tailored
+                  for both men and women, delivered by skilled professionals at
+                  salons or in the comfort of your home.
+                </p>
+                <div className="flex flex-wrap gap-4">
+                  <Button
+                    variant="outline"
+                    className="text-white border-white hover:bg-transparent hover:text-white uppercase"
+                  >
+                    open now
+                  </Button>
+                  <Button
+                    variant="outline"
+                    className="text-white border-white hover:bg-transparent hover:text-white uppercase"
+                  >
+                    know our policy
+                  </Button>
                 </div>
               </AnimatedSection>
-              <div className="">
-                <img src="/images/barber-shop.png" alt="barbar" />
+
+              <div className="max-w-sm w-full">
+                <img
+                  src="/images/barber-shop.png"
+                  alt="barber"
+                  className="w-full h-auto object-contain"
+                />
               </div>
             </div>
           </div>

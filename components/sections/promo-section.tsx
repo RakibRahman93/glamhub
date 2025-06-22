@@ -3,10 +3,8 @@ import { Button } from "@/components/ui/button";
 
 export function PromoSection() {
   return (
-    <section className="py-24 bg-gray-900 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('/images/saloon-bg.jpg')] bg-cover bg-center opacity-70" />
-
-      <div className="container mx-auto px-4 relative z-10">
+    <section className="relative overflow-hidden mb-4">
+      <div className="container mx-auto px-4 py-24 relative z-10 bg-[url('/images/saloon-bg.jpg')] bg-cover bg-center opacity-80">
         <AnimatedSection>
           <div className="text-center text-white max-w-5xl mx-auto">
             <h2 className="font-gilroy-bold text-4xl md:text-5xl  mb-6">

@@ -33,8 +33,9 @@ export function ServiceCard({
         className
       )}
     >
-      <CardContent className="p-0">
-        <div className={cn("aspect-square relative overflow-hidden")}>
+      <CardContent className="p-0 flex flex-col h-full">
+        {/* Image */}
+        <div className="aspect-square relative overflow-hidden">
           <div className="aspect-square overflow-hidden p-2">
             <img
               src={image}
@@ -43,13 +44,15 @@ export function ServiceCard({
             />
           </div>
         </div>
-        <div className="p-6 min-h-[200px]">
-          <div className="flex justify-between">
-            <h3 className="font-gilroy-bold text-xl text-gray-900 mb-2">
-              {title}
-            </h3>
-            <div className="flex items-center mb-4">
-              <div className="flex items-center">
+
+        {/* Content */}
+        <div className="p-6 flex flex-col justify-between min-h-[220px] flex-1">
+          <div>
+            <div className="flex justify-between">
+              <h3 className="font-gilroy-bold text-xl text-gray-900 mb-2">
+                {title}
+              </h3>
+              <div className="flex items-center mb-4">
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
@@ -61,31 +64,32 @@ export function ServiceCard({
                     )}
                   />
                 ))}
+                <span className="font-gilroy-regular text-sm text-gray-500 ml-2">
+                  ({reviews})
+                </span>
               </div>
-              <span className="font-gilroy-regular text-sm text-gray-500 ml-2">
-                ({reviews})
-              </span>
             </div>
+
+            {description && (
+              <p className="font-gilroy-regular text-gray-600 text-sm">
+                {description}
+              </p>
+            )}
           </div>
 
-          {description && (
-            <p className="font-gilroy-regular text-gray-600 text-sm mb-3">
-              {description}
-            </p>
-          )}
-
-          <div className="flex items-center justify-between">
+          {/* Button group pinned to bottom */}
+          <div className="mt-6 flex items-center justify-between">
             <Button
               variant={"outline"}
               size="sm"
-              className="border hover:bg-saloon-dark-brown text-#5F402B] uppercase rounded-none fon-bold"
+              className="border hover:bg-saloon-dark-brown text-[#5F402B] uppercase rounded-none"
             >
               Book Now
             </Button>
             <Button
               variant={"outline"}
               size="sm"
-              className="border hover:bg-saloon-dark-brown text-[#5F402B] uppercase rounded-none fon-bold"
+              className="border hover:bg-saloon-dark-brown text-[#5F402B] uppercase rounded-none"
             >
               Learn More
             </Button>

@@ -11,7 +11,7 @@ export function SectionHeading({ children, className, centered = false }: Sectio
   return (
     <h2
       className={cn(
-        "font-gilroy-bold text-3xl md:text-4xl lg:text-5xl text-gray-900 mb-8",
+        "font-gilroy-bold text-xl md:text-2xl lg:text-5xl text-gray-900 mb-8",
         centered && "text-center",
         className,
       )}
