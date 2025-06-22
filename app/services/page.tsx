@@ -67,17 +67,12 @@ export default function ServicesPage() {
 
                             {/* Content Section */}
                             <CardContent className="flex flex-col justify-between flex-1 p-4">
-                              <div className="mb-4 flex flex-row items-start justify-between">
+                              <div className="mb-1 flex flex-row items-start justify-between">
                                 <div className="">
                                   <div className="">
                                     <h4 className="font-gilroy-semibold text-base text-gray-900 font-bold">
                                       {service.name}
                                     </h4>
-                                  </div>
-                                  <div className="flex justify-between items-center text-sm mt-1">
-                                    <span className="text-gray-500">
-                                      {service.description}
-                                    </span>
                                   </div>
                                 </div>
                                 <div className="">
@@ -85,6 +80,11 @@ export default function ServicesPage() {
                                     Tk {service.price.toLocaleString()}
                                   </span>
                                 </div>
+                              </div>
+                              <div className="flex justify-between items-center text-sm mb-2">
+                                <span className="text-gray-500">
+                                  {service.description}
+                                </span>
                               </div>
                               <Button
                                 variant="outline"
