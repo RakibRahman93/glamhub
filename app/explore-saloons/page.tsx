@@ -4,14 +4,8 @@ import { Footer } from "@/components/sections/footer";
 import { SectionHeader } from "@/components/sections/SectionHeader";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { Button } from "@/components/ui/button";
-import {
-  Pagination,
-  PaginationContent,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-} from "@/components/ui/pagination";
+import PaginationControls from "@/components/ui/PaginationControls";
+
 import { ServiceCard } from "@/components/ui/service-card";
 import { gentsServices, womenServices } from "@/lib/servicesData";
 import { useState } from "react";
@@ -86,46 +80,11 @@ export default function ExploreSaloonsPage() {
               </div>
             </AnimatedSection>
             {/* Pagination */}
-            <Pagination className="mt-10">
-              <PaginationContent>
-                <PaginationItem>
-                  <PaginationPrevious
-                    onClick={() =>
-                      setGentsPage((prev) => Math.max(prev - 1, 1))
-                    }
-                    className={
-                      gentsPage === 1 ? "pointer-events-none opacity-50" : ""
-                    }
-                  />
-                </PaginationItem>
-
-                {[...Array(gentsTotalPages)].map((_, index) => (
-                  <PaginationItem key={index}>
-                    <PaginationLink
-                      isActive={gentsPage === index + 1}
-                      onClick={() => setGentsPage(index + 1)}
-                    >
-                      {index + 1}
-                    </PaginationLink>
-                  </PaginationItem>
-                ))}
-
-                <PaginationItem>
-                  <PaginationNext
-                    onClick={() =>
-                      setGentsPage((prev) =>
-                        Math.min(prev + 1, gentsTotalPages)
-                      )
-                    }
-                    className={
-                      gentsPage === gentsTotalPages
-                        ? "pointer-events-none opacity-50"
-                        : ""
-                    }
-                  />
-                </PaginationItem>
-              </PaginationContent>
-            </Pagination>
+            <PaginationControls
+              currentPage={gentsPage}
+              totalPages={gentsTotalPages}
+              onPageChange={setGentsPage}
+            />
           </div>
         </section>
 
@@ -197,46 +156,11 @@ export default function ExploreSaloonsPage() {
               </div>
             </AnimatedSection>
             {/* Pagination */}
-            <Pagination className="mt-10">
-              <PaginationContent>
-                <PaginationItem>
-                  <PaginationPrevious
-                    onClick={() =>
-                      setWomenPage((prev) => Math.max(prev - 1, 1))
-                    }
-                    className={
-                      womenPage === 1 ? "pointer-events-none opacity-50" : ""
-                    }
-                  />
-                </PaginationItem>
-
-                {[...Array(womenTotalPages)].map((_, index) => (
-                  <PaginationItem key={index}>
-                    <PaginationLink
-                      isActive={womenPage === index + 1}
-                      onClick={() => setWomenPage(index + 1)}
-                    >
-                      {index + 1}
-                    </PaginationLink>
-                  </PaginationItem>
-                ))}
-
-                <PaginationItem>
-                  <PaginationNext
-                    onClick={() =>
-                      setWomenPage((prev) =>
-                        Math.min(prev + 1, womenTotalPages)
-                      )
-                    }
-                    className={
-                      womenPage === womenTotalPages
-                        ? "pointer-events-none opacity-50"
-                        : ""
-                    }
-                  />
-                </PaginationItem>
-              </PaginationContent>
-            </Pagination>
+            <PaginationControls
+              currentPage={womenPage}
+              totalPages={womenTotalPages}
+              onPageChange={setWomenPage}
+            />
           </div>
         </section>
       </main>
