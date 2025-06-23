@@ -33,8 +33,8 @@ const footerLinks = {
 
 export function Footer() {
   return (
-    <footer className="text-white">
-      <div className="container mx-auto px-12 py-16 bg-[url('/images/footer-bg.jpg')] bg-cover bg-center">
+    <footer className="text-white bg-[url('/images/footer-bg.jpg')] bg-cover bg-center">
+      <div className="container mx-auto px-12 py-16">
         <div className="flex items-center justify-center">
           <AnimatedSection>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 place-items-center">
