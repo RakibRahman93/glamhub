@@ -5,7 +5,7 @@ import { Download } from "lucide-react";
 export function AppSection() {
   return (
     <section className="py-20 ">
-     <div className="container mx-auto px-8 md:px-12 bg-gradient-to-br from-amber-50 to-orange-50 bg-[url('/images/pocket-bg.jpg')] bg-cover bg-center">
+     <div className="container mx-auto px-8 md:px-12 bg-gradient-to-br from-amber-50 to-orange-50 bg-[url('/images/pick-bg.jpg')] bg-cover bg-center">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <AnimatedSection>
             <div className="space-y-6">
