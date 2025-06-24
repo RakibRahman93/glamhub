@@ -64,11 +64,11 @@ export default function ServiceDetailsPage({ params }) {
               ))}
             </div>
           </div>
-          <div className="md:w-[50%] w-full space-y-8">
+          <div className="md:w-[50%] w-full space-y-9">
             <div className="heading-area">
               <h1 className="text-2xl font-bold">{service.heading}</h1>
               <div className="flex items-center gap-2 mt-2">
-                <span className="text-yellow-500">★ {service.rating}</span>
+                <span className="text-yellow-500">★★★★★{service.rating}</span>
               </div>
 
               <p className="mt-4 text-gray-700 max-w-2xl">
@@ -122,19 +122,22 @@ export default function ServiceDetailsPage({ params }) {
             <TabsList className="flex gap-8 justify-start">
               <TabsTrigger
                 value="description"
-                className="py-3 bg-black text-sm font-semibold uppercase tracking-wide text-gray-500 data-[state=active]:text-saloon-brown data-[state=active]:border data-[state=active]:border-saloon-brown bg-transparent rounded-none"
+                className="py-3 text-sm font-semibold uppercase tracking-wide text-gray-500 
+data-[state=active]:text-saloon-brown data-[state=active]:border-t data-[state=active]:border-l data-[state=active]:border-r data-[state=active]:border-saloon-brown bg-[#F1F1F1] rounded-none"
               >
                 Descriptions
               </TabsTrigger>
               <TabsTrigger
                 value="information"
-                className="py-3 bg-black text-sm font-semibold uppercase tracking-wide text-gray-500 data-[state=active]:text-saloon-brown data-[state=active]:border data-[state=active]:border-t-1 data-[state=active]:border-saloon-brown bg-transparent rounded-none"
+                className="py-3 text-sm font-semibold uppercase tracking-wide text-gray-500 
+data-[state=active]:text-saloon-brown data-[state=active]:border-t data-[state=active]:border-l data-[state=active]:border-r data-[state=active]:border-saloon-brown bg-transparent rounded-none bg-[#F1F1F1]"
               >
                 Information
               </TabsTrigger>
               <TabsTrigger
                 value="faq"
-                className="py-3 bg-gray-500 text-sm font-semibold uppercase tracking-wide text-gray-500 data-[state=active]:text-saloon-brown data-[state=active]:border data-[state=active]:border-saloon-brown bg-transparent rounded-none"
+                className="py-3 text-sm font-semibold uppercase tracking-wide text-gray-500 
+data-[state=active]:text-saloon-brown data-[state=active]:border-t data-[state=active]:border-l data-[state=active]:border-r data-[state=active]:border-saloon-brown bg-transparent rounded-none bg-[#F1F1F1]"
               >
                 FAQs
               </TabsTrigger>
@@ -154,7 +157,7 @@ export default function ServiceDetailsPage({ params }) {
 
             <TabsContent
               value="information"
-              className="p-6 bg-white border mt-0 rounded-md text-gray-800 leading-relaxed"
+              className="p-6 bg-white border mt-0 text-gray-800 leading-relaxed"
             >
               <ul className="list-disc pl-5">
                 <li>Removes toxins and impurities</li>
@@ -165,7 +168,7 @@ export default function ServiceDetailsPage({ params }) {
 
             <TabsContent
               value="faq"
-              className="p-6 bg-white border mt-0 rounded-md text-gray-800 leading-relaxed"
+              className="p-6 bg-white border mt-0 text-gray-800 leading-relaxed"
             >
               <p>
                 <strong>Q:</strong> How often should I get a detox facial?
