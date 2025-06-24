@@ -3,15 +3,14 @@
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { ServiceCard } from "@/components/ui/service-card";
-import { Button } from "../ui/button";
-import { gentsServices, womenServices } from '@/lib/servicesData';
+import { gentsServices, womenServices } from "@/lib/servicesData";
 import { Autoplay, Scrollbar } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Button } from "../ui/button";
 
+import Link from "next/link";
 import "swiper/css";
 import "swiper/css/scrollbar";
-
-
 
 export function ServicesSection() {
   return (
@@ -46,17 +45,19 @@ export function ServicesSection() {
               1280: { slidesPerView: 4 },
             }}
           >
-            {gentsServices.map((service, index) => (
+            {gentsServices.map((saloon, index) => (
               <SwiperSlide key={index}>
                 <AnimatedSection delay={index * 0.1}>
-                  <ServiceCard
-                    title={service.name}
-                    description={service.description}
-                    rating={service.rating}
-                    reviews={service.reviews}
-                    image={service.image}
-                    variant="gents"
-                  />
+                  <Link href={`/explore-saloons/${saloon.id}`} key={saloon.id} passHref>
+                    <ServiceCard
+                      title={saloon.name}
+                      description={saloon.description}
+                      rating={saloon.rating}
+                      reviews={saloon.reviews}
+                      image={saloon.image}
+                      variant="gents"
+                    />
+                  </Link>
                 </AnimatedSection>
               </SwiperSlide>
             ))}
@@ -92,17 +93,22 @@ export function ServicesSection() {
               1280: { slidesPerView: 4 },
             }}
           >
-            {womenServices.map((service, index) => (
+            {womenServices.map((saloon, index) => (
               <SwiperSlide key={index}>
                 <AnimatedSection delay={index * 0.1}>
-                  <ServiceCard
-                    title={service.name}
-                    description={service.description}
-                    rating={service.rating}
-                    reviews={service.reviews}
-                    image={service.image}
-                    variant="women"
-                  />
+                  <Link
+                    href={`/explore-saloons/${saloon.id}`}
+                    className="block" passHref
+                  >
+                    <ServiceCard
+                      title={saloon.name}
+                      description={saloon.description}
+                      rating={saloon.rating}
+                      reviews={saloon.reviews}
+                      image={saloon.image}
+                      variant="women"
+                    />
+                  </Link>
                 </AnimatedSection>
               </SwiperSlide>
             ))}

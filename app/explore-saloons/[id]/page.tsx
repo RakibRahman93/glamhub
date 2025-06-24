@@ -74,7 +74,7 @@ export default function ExploreSaloonDetails({ params }) {
                 </div>
 
                 {/* Stats */}
-                <div className="mt-6 flex flex-wrap gap-4 text-sm md:text-base font-medium text-white justify-between">
+                <div className="mt-6 flex flex-wrap gap-4 text-sm md:text-lg font-medium text-white justify-between">
                   <span>
                     <span className="font-bold">{salon.positiveRating}%</span>{" "}
                     Positive rating
@@ -84,7 +84,7 @@ export default function ExploreSaloonDetails({ params }) {
                     Booked per day
                   </span>
                   <span>
-                    Location:
+                    Located {" "}
                     <span className="font-bold">{salon.location}</span>
                   </span>
                 </div>
