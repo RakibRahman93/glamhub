@@ -1,9 +1,10 @@
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/sections/footer";
-import { BreadcrumbLink } from "@/components/ui/breadcrumb";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { services } from "@/lib/servicesData";
 import { ShoppingBasket } from "lucide-react";
 import Image from "next/image";
@@ -33,22 +34,22 @@ export default function ServiceDetailsPage({ params }) {
       <Header />
       <main className="container mx-auto px-4 py-8">
         <Breadcrumbs
-        items={[
-          { label: "Home", href: "/" },
-          { label: "Services", href: "/services" },
-          { label: "Deep Cleanse Detox Facial" }, // current page
-        ]}
-      />
+          items={[
+            { label: "Home", href: "/" },
+            { label: "Services", href: "/services" },
+            { label: "Deep Cleanse Detox Facial" },
+          ]}
+        />
         <div className="flex flex-col md:flex-row gap-8">
           <div className="md:w-[50%] w-full">
             <div className="p-2 border">
               <Image
-              src={service.images[0]}
-              alt={service.heading}
-              width={750}
-              height={500}
-              className="rounded object-cover"
-            />
+                src={service.images[0]}
+                alt={service.heading}
+                width={750}
+                height={500}
+                className="rounded object-cover"
+              />
             </div>
             <div className="flex gap-2 mt-2">
               {service.images.map((img, idx) => (
@@ -115,19 +116,64 @@ export default function ServiceDetailsPage({ params }) {
           </div>
         </div>
 
-        {/* Tabs for Description, Information, Reviews */}
+        {/* Tabs for Description, Information, FAQs */}
         <div className="mt-10">
-          <div>
-            <button className="font-bold mr-4">DESCRIPTIONS</button>
-            <button className="mr-4">INFORMATION</button>
-            <button>REVIEWS</button>
-          </div>
-          <div className="mt-4">
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry...
-            </p>
-          </div>
+          <Tabs defaultValue="description" className="w-full">
+            <TabsList className="flex gap-8 justify-start">
+              <TabsTrigger
+                value="description"
+                className="py-3 bg-black text-sm font-semibold uppercase tracking-wide text-gray-500 data-[state=active]:text-saloon-brown data-[state=active]:border data-[state=active]:border-saloon-brown bg-transparent rounded-none"
+              >
+                Descriptions
+              </TabsTrigger>
+              <TabsTrigger
+                value="information"
+                className="py-3 bg-black text-sm font-semibold uppercase tracking-wide text-gray-500 data-[state=active]:text-saloon-brown data-[state=active]:border data-[state=active]:border-t-1 data-[state=active]:border-saloon-brown bg-transparent rounded-none"
+              >
+                Information
+              </TabsTrigger>
+              <TabsTrigger
+                value="faq"
+                className="py-3 bg-gray-500 text-sm font-semibold uppercase tracking-wide text-gray-500 data-[state=active]:text-saloon-brown data-[state=active]:border data-[state=active]:border-saloon-brown bg-transparent rounded-none"
+              >
+                FAQs
+              </TabsTrigger>
+            </TabsList>
+
+            <TabsContent
+              value="description"
+              className="p-6 bg-white border mt-0 text-gray-800 leading-relaxed"
+            >
+              <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book.
+              </p>
+            </TabsContent>
+
+            <TabsContent
+              value="information"
+              className="p-6 bg-white border mt-0 rounded-md text-gray-800 leading-relaxed"
+            >
+              <ul className="list-disc pl-5">
+                <li>Removes toxins and impurities</li>
+                <li>Hydrates and nourishes the skin</li>
+                <li>Improves blood circulation</li>
+              </ul>
+            </TabsContent>
+
+            <TabsContent
+              value="faq"
+              className="p-6 bg-white border mt-0 rounded-md text-gray-800 leading-relaxed"
+            >
+              <p>
+                <strong>Q:</strong> How often should I get a detox facial?
+                <br />
+                <strong>A:</strong> Once every 4–6 weeks for best results.
+              </p>
+            </TabsContent>
+          </Tabs>
         </div>
 
         {/* Related Services */}
