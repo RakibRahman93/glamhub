@@ -141,7 +141,7 @@ export default function ServiceDetailsPage({ params }) {
                     <img
                       src={rel.image}
                       alt={rel.name}
-                      className="w-full h-auto object-cover"
+                      className="w-full min-h-[400px] object-cover"
                     />
                     <div className="absolute top-0 left-0 p-3 m-2 rounded-full bg-gray-600/80">
                       <ShoppingBasket className="text-white w-5 h-5" />

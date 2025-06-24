@@ -137,7 +137,7 @@ export default function ServicesPage() {
                   <AnimatedSection key={index} delay={index * 0.1}>
                     <Link href={`/services/${service.id}`}>
                       <Card className="group transition-all duration-300 hover:shadow-xl border bg-white overflow-hidden flex flex-col h-full p-3">
-                        <div className="relative h-full overflow-hidden rounded">
+                        <div className="relative min-h-[400px] overflow-hidden rounded">
                           <img
                             src={service.image}
                             alt={service.name}
@@ -172,7 +172,7 @@ export default function ServicesPage() {
                           </p>
                           <Button
                             variant="outline"
-                            className="text-black border-saloon-brown hover:bg-saloon-dark-brown hover:text-white uppercase w-full"
+                            className="text-black border-saloon-brown hover:bg-saloon-dark-brown hover:text-black hover:font-bold uppercase w-full"
                           >
                             book now
                           </Button>
@@ -210,7 +210,7 @@ export default function ServicesPage() {
                     <AnimatedSection key={index} delay={index * 0.1}>
                       <Link href={`/services/${service.id}`}>
                         <Card className="group transition-all duration-300 hover:shadow-xl border bg-white overflow-hidden flex flex-col h-full p-3">
-                          <div className="relative h-full overflow-hidden rounded">
+                          <div className="relative min-h-[400px] overflow-hidden rounded">
                             <img
                               src={service.image}
                               alt={service.name}
@@ -245,7 +245,7 @@ export default function ServicesPage() {
                             </p>
                             <Button
                               variant="outline"
-                              className="text-black border-saloon-brown hover:bg-saloon-dark-brown hover:text-white uppercase w-full"
+                              className="text-black border-saloon-brown hover:bg-saloon-dark-brown hover:text-black font-bold uppercase w-full"
                             >
                               book now
                             </Button>
