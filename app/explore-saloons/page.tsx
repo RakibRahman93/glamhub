@@ -8,6 +8,7 @@ import PaginationControls from "@/components/ui/PaginationControls";
 
 import { ServiceCard } from "@/components/ui/service-card";
 import { gentsServices, womenServices } from "@/lib/servicesData";
+import Link from "next/link";
 import { useState } from "react";
 
 const ITEMS_PER_PAGE = 8;
@@ -65,17 +66,19 @@ export default function ExploreSaloonsPage() {
                 onButtonClick={() => console.log("Gents clicked")}
               />
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {currentGents.map((service, index) => (
-                  <AnimatedSection key={index} delay={index * 0.1}>
-                    <ServiceCard
-                      title={service.name}
-                      description={service.description}
-                      rating={service.rating}
-                      reviews={service.reviews}
-                      image={service.image}
-                      variant="gents"
-                    />
-                  </AnimatedSection>
+                {currentGents.map((saloon, index) => (
+                 <Link href={`/explore-saloons/${saloon.id}`} key={saloon.id}>
+                    <AnimatedSection key={index} delay={index * 0.1}>
+                      <ServiceCard
+                        title={saloon.name}
+                        description={saloon.description}
+                        rating={saloon.rating}
+                        reviews={saloon.reviews}
+                        image={saloon.image}
+                        variant="gents"
+                      />
+                    </AnimatedSection>
+                  </Link>
                 ))}
               </div>
             </AnimatedSection>
@@ -141,17 +144,19 @@ export default function ExploreSaloonsPage() {
               />
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {currentWomen.map((service, index) => (
-                  <AnimatedSection key={index} delay={index * 0.1}>
-                    <ServiceCard
-                      title={service.name}
-                      description={service.description}
-                      rating={service.rating}
-                      reviews={service.reviews}
-                      image={service.image}
-                      variant="women"
-                    />
-                  </AnimatedSection>
+                {currentWomen.map((saloon, index) => (
+                 <Link href={`/explore-saloons/${saloon.id}`} key={saloon.id}>
+                    <AnimatedSection key={index} delay={index * 0.1}>
+                      <ServiceCard
+                        title={saloon.name}
+                        description={saloon.description}
+                        rating={saloon.rating}
+                        reviews={saloon.reviews}
+                        image={saloon.image}
+                        variant="women"
+                      />
+                    </AnimatedSection>
+                  </Link>
                 ))}
               </div>
             </AnimatedSection>
