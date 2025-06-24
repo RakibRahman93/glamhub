@@ -8,7 +8,7 @@ export function GallerySection() {
       id="gallery"
       className="py-8 md:py-32 bg-white relative overflow-hidden"
     >
-      <div className="container mx-auto px-4 bg-[#FFFAEF] py-20">
+      <div className="container mx-auto px-4 py-20 bg-[#FFFAEF] bg-[url('/images/pocket-bg.jpg')]">
         <AnimatedSection>
           <SectionHeading centered className="mb-8">
             EXPLORE OUR PARLOURS
