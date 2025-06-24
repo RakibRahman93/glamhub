@@ -135,7 +135,7 @@ export default function ServicesPage() {
                 filteredAndSortedServices.slice(0, 6).map((service, index) => (
                   <AnimatedSection key={index} delay={index * 0.1}>
                     <Card className="group transition-all duration-300 hover:shadow-xl border bg-white overflow-hidden flex flex-col h-full p-3">
-                      <div className="relative h-56 overflow-hidden rounded">
+                      <div className="relative h-full overflow-hidden rounded">
                         <img
                           src={service.image}
                           alt={service.name}
@@ -158,8 +158,8 @@ export default function ServicesPage() {
                       </div>
                       <CardContent className="flex flex-col justify-between flex-1 p-4">
                         <div className="flex flex-row items-start justify-between mb-2">
-                          <h4 className="font-medium text-gray-900 text-base">
-                            {service.name}
+                          <h4 className="font-bold text-gray-900 text-base">
+                            {service.heading}
                           </h4>
                           <span className="text-saloon-dark-brown font-bold">
                             Tk {service.price.toLocaleString()}
@@ -189,7 +189,7 @@ export default function ServicesPage() {
           description="Discover a full range of grooming and spa services tailored for both men and women, delivered by skilled professionals at salons or in the comfort of your home."
           primaryBtnText="Book Now"
           secondaryBtnText="Explore Now"
-          backgroundImage="/images/saloon-bg.jpg"
+          backgroundImage="/images/service-bg.jpg"
         />
         {/* grid data service pagination */}
         <section className="py-16">
@@ -201,52 +201,54 @@ export default function ServicesPage() {
                   No services found in this category.
                 </p>
               ) : (
-                currentServices.map((service, index) => (
-                  <AnimatedSection key={index} delay={index * 0.1}>
-                    <Card className="group transition-all duration-300 hover:shadow-xl border bg-white overflow-hidden flex flex-col h-full p-3">
-                      <div className="relative h-56 overflow-hidden rounded">
-                        <img
-                          src={service.image}
-                          alt={service.name}
-                          className="w-full h-full object-cover"
-                        />
-                        <div className="absolute top-0 left-0 p-3 m-2 rounded-full bg-gray-600/80">
-                          <ShoppingBasket className="text-white w-5 h-5" />
-                        </div>
-                        <div className="absolute bottom-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-4 flex justify-between w-full">
-                          <h3 className="text-white font-semibold text-base">
-                            {service.name}
-                          </h3>
-                          <div className="flex items-center text-yellow-400 text-sm">
-                            {"★".repeat(Math.floor(service.rating || 5))}
-                            <span className="ml-1 text-white text-xs">
-                              {service.rating || 0}
-                            </span>
+                currentServices
+                  .sort(() => Math.random() - 0.5)
+                  .map((service, index) => (
+                    <AnimatedSection key={index} delay={index * 0.1}>
+                      <Card className="group transition-all duration-300 hover:shadow-xl border bg-white overflow-hidden flex flex-col h-full p-3">
+                        <div className="relative h-full overflow-hidden rounded">
+                          <img
+                            src={service.image}
+                            alt={service.name}
+                            className="w-full h-full object-cover"
+                          />
+                          <div className="absolute top-0 left-0 p-3 m-2 rounded-full bg-gray-600/80">
+                            <ShoppingBasket className="text-white w-5 h-5" />
+                          </div>
+                          <div className="absolute bottom-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-4 flex justify-between w-full">
+                            <h3 className="text-white font-semibold text-base">
+                              {service.name}
+                            </h3>
+                            <div className="flex items-center text-yellow-400 text-sm">
+                              {"★".repeat(Math.floor(service.rating || 5))}
+                              <span className="ml-1 text-white text-xs">
+                                {service.rating || 0}
+                              </span>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      <CardContent className="flex flex-col justify-between flex-1 p-4">
-                        <div className="flex flex-row items-start justify-between mb-2">
-                          <h4 className="font-medium text-gray-900 text-base">
-                            {service.name}
-                          </h4>
-                          <span className="text-saloon-dark-brown font-bold">
-                            Tk {service.price.toLocaleString()}
-                          </span>
-                        </div>
-                        <p className="text-sm text-gray-500 mb-3 line-clamp-3">
-                          {service.description}
-                        </p>
-                        <Button
-                          variant="outline"
-                          className="text-black border-saloon-brown hover:bg-saloon-dark-brown hover:text-white uppercase w-full"
-                        >
-                          book now
-                        </Button>
-                      </CardContent>
-                    </Card>
-                  </AnimatedSection>
-                ))
+                        <CardContent className="flex flex-col justify-between flex-1 p-4">
+                          <div className="flex flex-row items-start justify-between mb-2">
+                            <h4 className="font-bold text-gray-900 text-base">
+                              {service.heading}
+                            </h4>
+                            <span className="text-saloon-dark-brown font-bold">
+                              Tk {service.price.toLocaleString()}
+                            </span>
+                          </div>
+                          <p className="text-sm text-gray-500 mb-3 line-clamp-3">
+                            {service.description}
+                          </p>
+                          <Button
+                            variant="outline"
+                            className="text-black border-saloon-brown hover:bg-saloon-dark-brown hover:text-white uppercase w-full"
+                          >
+                            book now
+                          </Button>
+                        </CardContent>
+                      </Card>
+                    </AnimatedSection>
+                  ))
               )}
             </div>
             {/* ✅ Pagination Controls */}

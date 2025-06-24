@@ -19,7 +19,7 @@ export function PromoSection({
   return (
     <section className="relative overflow-hidden mb-4">
       <div
-        className="container mx-auto px-4 py-24 relative z-10 bg-cover bg-center opacity-80"
+        className="container mx-auto px-4 py-24 relative z-10 bg-cover bg-center opacity-90"
         style={{ backgroundImage: `url(${backgroundImage})` }}
       >
         <AnimatedSection>
