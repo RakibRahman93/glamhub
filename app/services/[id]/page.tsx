@@ -1,5 +1,7 @@
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/sections/footer";
+import { BreadcrumbLink } from "@/components/ui/breadcrumb";
+import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { services } from "@/lib/servicesData";
@@ -30,6 +32,13 @@ export default function ServiceDetailsPage({ params }) {
     <>
       <Header />
       <main className="container mx-auto px-4 py-8">
+        <Breadcrumbs
+        items={[
+          { label: "Home", href: "/" },
+          { label: "Services", href: "/services" },
+          { label: "Deep Cleanse Detox Facial" }, // current page
+        ]}
+      />
         <div className="flex flex-col md:flex-row gap-8">
           <div className="md:w-[50%] w-full">
             <div className="p-2 border">
