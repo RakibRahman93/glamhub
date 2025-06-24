@@ -30,7 +30,7 @@ export function HeroSection() {
         "Personalized cuts and luxury grooming to bring out your best look.",
     },
     {
-      image: "images/iphone.jpg",
+      image: "images/slider_1.jpg",
       title: "Premium Cuts",
       headline: "Professional Touch",
       subHeadline: "",
