@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import PaginationControls from "@/components/ui/PaginationControls";
 import { services } from "@/lib/servicesData";
-import { ShoppingBasket } from "lucide-react";
+import { Scissors, ShoppingBasket } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -74,8 +74,11 @@ export default function ServicesPage() {
               {/* Desktop Filter Label & Category Tabs */}
               <div className="hidden md:block relative mb-4">
                 {/* Filter label */}
-                <div className="absolute inset-0 w-[80px] left-0 bg-saloon-dark-brown text-white text-sm font-bold px-4 py-4">
-                  Filter
+                <div className="absolute inset-0 w-[100px] left-0 bg-saloon-dark-brown text-white text-sm font-bold px-4 py-4 flex items-center gap-2 rounded-l-md">
+                  <div>Filter</div>
+                  <div>
+                    <Scissors />
+                  </div>
                 </div>
 
                 <div className="flex justify-center gap-2 bg-black p-2 rounded-md flex-wrap">
