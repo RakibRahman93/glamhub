@@ -1,9 +1,19 @@
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/sections/footer";
+import { AnimatedSection } from "@/components/ui/animated-section";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
-import { gentsServices, womenServices } from "@/lib/servicesData";
-import { ChevronLeft, MoreVertical, Search } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { SectionHeading } from "@/components/ui/section-heading";
+import { gentsServices, services, womenServices } from "@/lib/servicesData";
+import {
+  ChevronLeft,
+  MoreVertical,
+  Search,
+  ShoppingBasket,
+} from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function ExploreSaloonDetails({ params }) {
   const { id } = params;
@@ -191,6 +201,74 @@ export default function ExploreSaloonDetails({ params }) {
                   soothe skin.
                 </p>
               </div>
+            </div>
+          </div>
+        </section>
+        {/* Popular Services */}
+        <section id="popular-services" className="py-20 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <AnimatedSection className="mb-4">
+              <div className="flex justify-between items-center align-middle">
+                <SectionHeading className="mb-4 uppercase">
+                  today popular services
+                </SectionHeading>
+                {/* <div className="mb-12">
+              <Button
+                variant="outline"
+                className="hover:underline text-saloon-brown uppercase"
+              >
+                Explore More
+              </Button>
+            </div> */}
+              </div>
+            </AnimatedSection>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+              {services.slice(0, 3).map((service) => (
+                <Link key={service.id} href={`/services/${service.id}`}>
+                  <Card className="group transition-all duration-300 hover:shadow-xl border bg-white overflow-hidden flex flex-col h-full p-3 cursor-pointer">
+                    <div className="relative h-full overflow-hidden rounded">
+                      <img
+                        src={service.image}
+                        alt={service.name}
+                        className="w-full min-h-[400px] object-cover"
+                      />
+                      <div className="absolute top-0 left-0 p-3 m-2 rounded-full bg-gray-600/80">
+                        <ShoppingBasket className="text-white w-5 h-5" />
+                      </div>
+                      <div className="absolute bottom-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-4 flex justify-between w-full">
+                        <h3 className="text-white font-semibold text-base">
+                          {service.name}
+                        </h3>
+                        <div className="flex items-center text-yellow-400 text-sm">
+                          {"★".repeat(Math.floor(service.rating || 5))}
+                          <span className="ml-1 text-white text-xs">
+                            {service.rating || 0}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <CardContent className="flex flex-col justify-between flex-1 p-4">
+                      <div className="flex flex-row items-start justify-between mb-2">
+                        <h4 className="font-bold text-gray-900 text-base">
+                          {service.heading}
+                        </h4>
+                        <span className="text-saloon-dark-brown font-bold">
+                          Tk {service.price.toLocaleString()}
+                        </span>
+                      </div>
+                      <p className="text-sm text-gray-500 mb-3 line-clamp-3">
+                        {service.description}
+                      </p>
+                      <Button
+                        variant="outline"
+                        className="text-black border-saloon-brown hover:bg-saloon-dark-brown hover:text-white uppercase w-full"
+                      >
+                        book now
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))}
             </div>
           </div>
         </section>
