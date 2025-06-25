@@ -195,8 +195,15 @@ export default function ServicesPage() {
           backgroundImage="/images/service-bg.jpg"
         />
         {/* grid data service pagination */}
-        <section className="py-16">
+        <section className="py-8">
           <div className="container mx-auto px-4">
+            <div className="flex items-center justify-center my-10">
+              <div className="flex-grow h-px bg-gray-300"></div>
+              <span className="mx-4 text-lg md:text-2xl font-bold text-gray-800 whitespace-nowrap">
+                RELATED SERVICES
+              </span>
+              <div className="flex-grow h-px bg-gray-300"></div>
+            </div>
             {/* Services Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredAndSortedServices.length === 0 ? (
