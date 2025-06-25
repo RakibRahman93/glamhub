@@ -261,7 +261,7 @@ export default function ExploreSaloonDetails({ params }) {
                       </p>
                       <Button
                         variant="outline"
-                        className="text-black border-saloon-brown hover:bg-saloon-dark-brown hover:text-white uppercase w-full"
+                        className="text-black border-saloon-brown hover:bg-saloon-dark-brown hover:text-black hover:font-bold uppercase w-full"
                       >
                         book now
                       </Button>
