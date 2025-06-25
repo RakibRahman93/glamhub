@@ -2,6 +2,7 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/sections/footer";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { gentsServices, womenServices } from "@/lib/servicesData";
+import { ChevronLeft, MoreVertical, Search } from "lucide-react";
 import Image from "next/image";
 
 export default function ExploreSaloonDetails({ params }) {
@@ -24,79 +25,106 @@ export default function ExploreSaloonDetails({ params }) {
           ]}
         />
 
-        {/* Banner Section */}
-        <div className="relative w-full rounded-lg overflow-hidden bg-gray-100 mt-6 border border-white">
-          <div className="relative w-full h-[30rem] md:h-96 border-2">
-            <Image
-              src={salon.image}
-              alt={salon.name}
-              fill
-              className="object-cover"
-              priority
-            />
-            {/* Overlay Content */}
-            <div className="absolute inset-0 bg-black/50 flex items-center">
-              <div className="container px-4 md:px-6 lg:px-12">
-                <div className="flex flex-col md:flex-row items-center gap-6 text-white">
-                  {/* Thumbnail */}
-                  <div className="flex-shrink-0">
-                    <Image
-                      src={salon.image}
-                      alt={salon.name}
-                      width={150}
-                      height={150}
-                    />
-                  </div>
+        <div className="relative w-full h-[38rem] md:h-96 overflow-hidden rounded-lg">
+          {/* Background Image */}
+          <Image
+            src={salon.image}
+            alt={salon.name}
+            fill
+            className="object-cover"
+            priority
+          />
 
-                  {/* Info */}
-                  <div className="flex-1">
-                    <h1 className="text-2xl md:text-4xl font-bold mb-2">
-                      {salon.name}
-                    </h1>
-                    <p className="mb-4 text-sm md:text-base max-w-xl">
-                      {salon.description}
-                    </p>
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black/40">
+            {/* Top Search Bar */}
+            <div className="flex items-center px-4 py-3 md:px-6 gap-4">
+              {/* Left: Back Icon */}
+              <button className="text-white text-xl flex-shrink-0">
+                <ChevronLeft className="w-6 h-6" />
+              </button>
 
-                    {/* Buttons */}
-                    <div className="flex flex-wrap gap-4">
-                      <button className="bg-transparent border border-white px-4 py-2 text-white">
-                        BOOK NOW
-                      </button>
-                      <button className="bg-transparent border border-white px-4 py-2 text-white">
-                        EXPLORE NOW
-                      </button>
-                      {/* Desktop Only */}
-                      {/* <button className="hidden md:inline-block bg-transparent border border-white px-4 py-2 text-white ml-auto">
+              {/* Center: Full Width Search */}
+              <div className="flex-grow">
+                <div className="flex items-center gap-2 bg-white/10 border border-white/30 backdrop-blur-sm rounded-md px-3 py-2 w-full text-white">
+                  <Search className="w-5 h-5 text-white/70" />
+                  <input
+                    type="text"
+                    placeholder="Search"
+                    className="bg-transparent border-none outline-none text-white placeholder-white/70 w-full"
+                  />
+                </div>
+              </div>
+
+              {/* Right: Menu Icon */}
+              <button className="text-white text-xl flex-shrink-0">
+                <MoreVertical className="w-6 h-6" />
+              </button>
+            </div>
+
+            {/* Glass Card */}
+            <div className="flex items-center px-6 justify-center md:h-[280px] w-full">
+              <div className="w-full h-full rounded-sm border border-white p-4">
+                <div className="backdrop-blur-md bg-white/10  p-6 w-full max-w-[90rem] mx-auto">
+                  {/* Top Row */}
+                  <div className="flex justify-between items-start">
+                    {/* Left: Logo + Text */}
+                    <div className="flex flex-col md:flex-row md:items-center gap-6 text-white">
+                      {/* Thumbnail */}
+                      <Image
+                        src={salon.image}
+                        alt={salon.name}
+                        width={120}
+                        height={120}
+                        className="rounded"
+                      />
+
+                      {/* Info */}
+                      <div>
+                        <h1 className="text-2xl md:text-3xl font-bold mb-1 uppercase">
+                          {salon.name}
+                        </h1>
+                        <p className="text-sm md:text-base max-w-xl text-white/80 mb-4 uppercase">
+                          A SANCTUARY OF BEAUTY AND ELEGANCE, WHERE EVERY WOMAN
+                          RADIATES CONFIDENCE AND STYLE.
+                        </p>
+                        <div className="flex flex-wrap gap-4">
+                          <button className="px-4 py-2 border border-white text-white hover:bg-white hover:text-black transition">
+                            BOOK NOW
+                          </button>
+                          <button className="px-4 py-2 border border-white text-white hover:bg-white hover:text-black transition">
+                            EXPLORE SHOP
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Right: Contact Button */}
+                    <div className="hidden md:block">
+                      <button className="px-4 py-2 border border-white text-white hover:bg-white hover:text-black transition">
                         CONTACT INFO
-                      </button> */}
+                      </button>
                     </div>
                   </div>
-                </div>
 
-                {/* Stats */}
-                <div className="mt-6 flex flex-wrap gap-4 text-sm md:text-lg font-medium text-white justify-between">
-                  <span>
-                    <span className="font-bold">{salon.positiveRating}%</span>{" "}
-                    Positive rating
-                  </span>
-                  <span>
-                    <span className="font-bold">{salon.bookedPerDay}+</span>{" "}
-                    Booked per day
-                  </span>
-                  <span>
-                    Located {" "}
-                    <span className="font-bold">{salon.location}</span>
-                  </span>
+                  {/* Bottom Stats */}
+                  <div className="mt-6 flex flex-wrap gap-6 text-sm md:text-base text-white font-medium justify-between">
+                    <span>
+                      <span className="font-bold">{salon.positiveRating}%</span>{" "}
+                      Best positive seller rating
+                    </span>
+                    <span>
+                      <span className="font-bold">{salon.bookedPerDay}+</span>{" "}
+                      Booked per day
+                    </span>
+                    <span>
+                      Located{" "}
+                      <span className="font-bold">{salon.location}</span>
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-
-          {/* Mobile Contact Button */}
-          <div className="absolute top-6 right-8">
-            <button className="hidden md:inline-block bg-transparent border border-white px-4 py-2 text-white ml-auto">
-              CONTACT INFO
-            </button>
           </div>
         </div>
       </main>
