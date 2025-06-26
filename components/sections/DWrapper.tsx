@@ -36,7 +36,7 @@ const DWrapper: FC<CardGridProps> = ({ category = "facials" }) => {
   }
 
   return (
-    <div className="container mx-auto px-8 py-8 relative z-10 bg-cover bg-center opacity-90 border my-8">
+    <div className="container mx-auto md:px-8 md:py-8 relative z-10 bg-cover bg-center opacity-90 border my-8">
       <Swiper
         modules={[Autoplay]}
         spaceBetween={20}
