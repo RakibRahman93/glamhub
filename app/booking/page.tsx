@@ -15,7 +15,7 @@ export default function BookingPage() {
       <Header />
       <main className="min-h-screen bg-gray-50">
         {/* Page Header */}
-        <section className="py-16 bg-gradient-to-r from-saloon-brown to-saloon-dark-brown text-white">
+        <section className="py-16 bg-gradient-to-r from-saloon-brown to-saloon-dark-brown text-saloon-brown">
           <div className="container mx-auto px-4">
             <AnimatedSection>
               <div className="text-center">

@@ -14,7 +14,7 @@ import "swiper/css/scrollbar";
 
 export function ServicesSection() {
   return (
-    <section id="services" className="py-20 bg-gray-50">
+    <section id="services" className="md:py-8 py-4 bg-gray-50">
       <div className="container mx-auto px-4">
         {/* Gents Services */}
         <AnimatedSection className="mb-16">
@@ -23,12 +23,14 @@ export function ServicesSection() {
               BEST SALOON FOR GENTS
             </SectionHeading>
             <div className="mb-12">
+              <Link href="/explore-saloons">
               <Button
                 variant="outline"
                 className="hover:underline text-saloon-brown uppercase"
               >
                 Explore More
               </Button>
+              </Link>
             </div>
           </div>
 
@@ -71,12 +73,14 @@ export function ServicesSection() {
               BEST SALOON FOR WOMEN
             </SectionHeading>
             <div className="mb-12">
+              <Link href="/explore-saloons">
               <Button
                 variant="outline"
                 className="hover:underline text-saloon-brown uppercase"
               >
                 Explore More
               </Button>
+              </Link>
             </div>
           </div>
 

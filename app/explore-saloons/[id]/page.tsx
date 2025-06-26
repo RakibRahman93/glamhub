@@ -1,5 +1,7 @@
 import { Header } from "@/components/layout/header";
+import DWrapper from "@/components/sections/DWrapper";
 import { Footer } from "@/components/sections/footer";
+import { PromoSection } from "@/components/sections/promo-section";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { Button } from "@/components/ui/button";
@@ -205,7 +207,7 @@ export default function ExploreSaloonDetails({ params }) {
           </div>
         </section>
         {/* Popular Services */}
-        <section id="popular-services" className="py-20 bg-gray-50">
+        <section id="popular-services" className="md:py-8 py-4 bg-gray-50">
           <div className="container mx-auto px-4">
             <AnimatedSection className="mb-4">
               <div className="flex justify-between items-center align-middle">
@@ -263,7 +265,7 @@ export default function ExploreSaloonDetails({ params }) {
                         variant="outline"
                         className="text-black border-saloon-brown hover:bg-saloon-dark-brown hover:text-black hover:font-bold uppercase w-full"
                       >
-                        book now
+                        View details
                       </Button>
                     </CardContent>
                   </Card>
@@ -272,6 +274,15 @@ export default function ExploreSaloonDetails({ params }) {
             </div>
           </div>
         </section>
+        <DWrapper category="facials" />
+        {/* promotions sections */}
+        <PromoSection
+          title="GET SPECIAL DISCOUNTS ON HOME SERVICES"
+          description="Discover a full range of grooming and spa services tailored for both men and women, delivered by skilled professionals at salons or in the comfort of your home."
+          primaryBtnText="Contact Now"
+          secondaryBtnText="Know More"
+          backgroundImage="/images/saloon-bg.jpg"
+        />
       </main>
       <Footer />
     </>

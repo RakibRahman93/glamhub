@@ -177,7 +177,7 @@ export default function ServicesPage() {
                             variant="outline"
                             className="text-black border-saloon-brown hover:bg-saloon-dark-brown hover:text-black hover:font-bold uppercase w-full"
                           >
-                            book now
+                            View Details
                           </Button>
                         </CardContent>
                       </Card>
@@ -257,7 +257,7 @@ export default function ServicesPage() {
                               variant="outline"
                               className="text-black border-saloon-brown hover:bg-saloon-dark-brown hover:text-black font-bold uppercase w-full"
                             >
-                              book now
+                              View details
                             </Button>
                           </CardContent>
                         </Card>

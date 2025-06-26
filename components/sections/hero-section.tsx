@@ -8,6 +8,7 @@ import "swiper/css/pagination";
 import { Autoplay, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "./custom.css";
+import Link from "next/link";
 
 export function HeroSection() {
   const [slideIndex, setSlideIndex] = useState(0);
@@ -129,12 +130,16 @@ export function HeroSection() {
                   {slide.description}
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
+                  <Link
+                    href="/explore-saloons">
                   <Button
                     size="lg"
                     className="bg-saloon-brown hover:bg-saloon-dark-brown text-white px-8 py-4 text-lg font-gilroy-medium uppercase"
                   >
                     Explore Now
                   </Button>
+                  </Link>
+                  <Link href="/booking">
                   <Button
                     variant="outline"
                     size="lg"
@@ -142,6 +147,7 @@ export function HeroSection() {
                   >
                     Book Now
                   </Button>
+                  </Link>
                 </div>
               </motion.div>
             </SwiperSlide>
