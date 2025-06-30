@@ -1,14 +1,13 @@
 "use client";
-
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { useState } from "react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Autoplay, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "./custom.css";
-import Link from "next/link";
 
 export function HeroSection() {
   const [slideIndex, setSlideIndex] = useState(0);
@@ -95,7 +94,7 @@ export function HeroSection() {
       </div>
 
       {/* Content Slider */}
-      <div className="relative z-10 text-left text-white max-w-7xl mx-auto w-full px-4">
+      <div className="relative z-10 text-left text-white max-w-9xl mx-auto w-full px-8">
         <Swiper
           modules={[Autoplay]}
           autoplay={{ delay: 5000, disableOnInteraction: false }}
@@ -130,23 +129,22 @@ export function HeroSection() {
                   {slide.description}
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Link
-                    href="/explore-saloons">
-                  <Button
-                    size="lg"
-                    className="bg-saloon-brown hover:bg-saloon-dark-brown text-white px-8 py-4 text-lg font-gilroy-medium uppercase"
-                  >
-                    Explore Now
-                  </Button>
+                  <Link href="/explore-saloons">
+                    <Button
+                      size="lg"
+                      className="bg-saloon-brown hover:bg-saloon-dark-brown text-white px-8 py-4 text-lg font-gilroy-medium uppercase"
+                    >
+                      Explore Now
+                    </Button>
                   </Link>
                   <Link href="/booking">
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="bg-white border border-saloon-brown hover:bg-saloon-dark-brown text-saloon-brown px-8 py-4 text-lg font-gilroy-medium"
-                  >
-                    Book Now
-                  </Button>
+                    <Button
+                      variant="outline"
+                      size="lg"
+                      className="bg-white border border-saloon-brown hover:bg-saloon-dark-brown text-saloon-brown px-8 py-4 text-lg font-gilroy-medium"
+                    >
+                      Book Now
+                    </Button>
                   </Link>
                 </div>
               </motion.div>
