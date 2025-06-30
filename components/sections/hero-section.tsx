@@ -42,15 +42,15 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="container mx-auto relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-900"
+      className="container mx-auto relative min-h-[65vh] flex items-center justify-center overflow-hidden bg-gray-900"
     >
       {/* Top Banner */}
       <div className="absolute top-0 w-full z-20 left-0">
         <div className="container mx-auto text-center bg-[#000] text-sm text-gray-300 py-2">
           Do you need a business account?{" "}
-          <a href="#" className="text-white underline hover:text-[#FFAC0E]">
+          <Link href="/auth" className="text-white underline hover:text-[#FFAC0E]">
             Sign up now
-          </a>
+          </Link>
         </div>
         <div className="relative h-[20px]">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 after:content-[''] after:absolute after:w-0 after:h-0 after:border-l-[10px] after:border-l-transparent after:border-r-[10px] after:border-r-transparent after:border-t-[10px] after:border-t-black" />
