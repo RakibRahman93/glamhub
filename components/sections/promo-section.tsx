@@ -1,5 +1,6 @@
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 interface PromoSectionProps {
   title: string;
@@ -32,21 +33,25 @@ export function PromoSection({
             </p>
             <div className="flex justify-center mb-8">
               <div className="flex items-center gap-3">
+                 <Link href="/booking">
                 <Button
                   variant="outline"
                   size="sm"
-                  className="border border-white hover:bg-saloon-dark-brown text-white uppercase rounded-none font-bold"
+                  className="border border-white hover:bg-saloon-dark-brown text-white uppercase rounded-none font-bold hover:text-white"
                 >
                   {primaryBtnText}
                 </Button>
+                </Link>
                 {secondaryBtnText && (
+                   <Link href="/explore-saloons">
                   <Button
                     variant="outline"
                     size="sm"
-                    className="border border-white hover:bg-saloon-dark-brown text-white uppercase rounded-none font-bold"
+                    className="border border-white hover:bg-saloon-dark-brown text-white uppercase rounded-none font-bold hover:text-white"
                   >
                     {secondaryBtnText}
                   </Button>
+                  </Link>
                 )}
               </div>
             </div>

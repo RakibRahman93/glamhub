@@ -1,6 +1,7 @@
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { Button } from "@/components/ui/button";
 import { SectionHeading } from "@/components/ui/section-heading";
+import Link from "next/link";
 
 export function GallerySection() {
   return (
@@ -33,12 +34,14 @@ export function GallerySection() {
                   for both men and women, delivered by skilled professionals at
                   salons or in the comfort of your home.
                 </p>
-                <Button
-                  variant={"outline"}
-                  className="bg-transparent border border-white hover:bg-saloon-dark-brown text-white px-8 py-4 text-sm font-gilroy-medium mt-4"
-                >
-                  Explore Now
-                </Button>
+                <Link href="/explore-saloons">
+                  <Button
+                    variant={"outline"}
+                    className="bg-transparent border border-white hover:bg-saloon-dark-brown text-white px-8 py-4 text-sm font-gilroy-medium mt-4 hover:text-white"
+                  >
+                    Explore Now
+                  </Button>
+                </Link>
               </div>
             </div>
           </AnimatedSection>
@@ -55,12 +58,14 @@ export function GallerySection() {
                   for both men and women, delivered by skilled professionals at
                   salons or in the comfort of your home.
                 </p>
-                <Button
-                  variant={"outline"}
-                  className="bg-transparent border border-white hover:bg-saloon-dark-brown text-white px-8 py-4 text-sm font-gilroy-medium mt-4"
-                >
-                  Explore Now
-                </Button>
+                <Link href="/explore-saloons">
+                  <Button
+                    variant={"outline"}
+                    className="bg-transparent border border-white hover:bg-saloon-dark-brown text-white px-8 py-4 text-sm font-gilroy-medium mt-4 hover:text-white"
+                  >
+                    Explore Now
+                  </Button>
+                </Link>
               </div>
             </div>
           </AnimatedSection>

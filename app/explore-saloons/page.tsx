@@ -29,6 +29,9 @@ export default function ExploreSaloonsPage() {
     (womenPage - 1) * ITEMS_PER_PAGE,
     womenPage * ITEMS_PER_PAGE
   );
+
+  const showGentsPagination = gentsServices.length > ITEMS_PER_PAGE;
+  const showWomenPagination = womenServices.length > ITEMS_PER_PAGE;
   return (
     <>
       <Header />
@@ -60,14 +63,10 @@ export default function ExploreSaloonsPage() {
         <section className="py-16">
           <div className="container px-4 mx-auto">
             <AnimatedSection className="mb-12">
-              <SectionHeader
-                title="EXPLORE OUR SALOON FOR GENTS"
-                buttonLabel="Explore More"
-                onButtonClick={() => console.log("Gents clicked")}
-              />
+              <SectionHeader title="EXPLORE OUR SALOON FOR GENTS" />
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {currentGents.map((saloon, index) => (
-                 <Link href={`/explore-saloons/${saloon.id}`} key={saloon.id}>
+                  <Link href={`/explore-saloons/${saloon.id}`} key={saloon.id}>
                     <AnimatedSection key={index} delay={index * 0.1}>
                       <ServiceCard
                         title={saloon.name}
@@ -83,11 +82,13 @@ export default function ExploreSaloonsPage() {
               </div>
             </AnimatedSection>
             {/* Pagination */}
-            <PaginationControls
-              currentPage={gentsPage}
-              totalPages={gentsTotalPages}
-              onPageChange={setGentsPage}
-            />
+            {showGentsPagination && (
+              <PaginationControls
+                currentPage={gentsPage}
+                totalPages={gentsTotalPages}
+                onPageChange={setGentsPage}
+              />
+            )}
           </div>
         </section>
 
@@ -137,15 +138,11 @@ export default function ExploreSaloonsPage() {
         <section className="py-16">
           <div className="container px-4 mx-auto">
             <AnimatedSection>
-              <SectionHeader
-                title="EXPLORE OUR SALOON FOR WOMAN"
-                buttonLabel="Explore More"
-                onButtonClick={() => console.log("Gents clicked")}
-              />
+              <SectionHeader title="EXPLORE OUR SALOON FOR WOMAN" />
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {currentWomen.map((saloon, index) => (
-                 <Link href={`/explore-saloons/${saloon.id}`} key={saloon.id}>
+                  <Link href={`/explore-saloons/${saloon.id}`} key={saloon.id}>
                     <AnimatedSection key={index} delay={index * 0.1}>
                       <ServiceCard
                         title={saloon.name}
@@ -161,11 +158,13 @@ export default function ExploreSaloonsPage() {
               </div>
             </AnimatedSection>
             {/* Pagination */}
-            <PaginationControls
-              currentPage={womenPage}
-              totalPages={womenTotalPages}
-              onPageChange={setWomenPage}
-            />
+            {showWomenPagination && (
+              <PaginationControls
+                currentPage={womenPage}
+                totalPages={womenTotalPages}
+                onPageChange={setWomenPage}
+              />
+            )}
           </div>
         </section>
       </main>

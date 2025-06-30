@@ -23,7 +23,7 @@ export function ServicesSection() {
               BEST SALOON FOR GENTS
             </SectionHeading>
             <div className="mb-12">
-              <Link href="/explore-saloons">
+              <Link href="/booking">
               <Button
                 variant="outline"
                 className="hover:underline text-saloon-brown uppercase"

@@ -7,7 +7,7 @@ import { SectionHeading } from '@/components/ui/section-heading';
 
 type SectionHeaderProps = {
   title: string;
-  buttonLabel: string;
+  buttonLabel?: string;
   onButtonClick?: () => void;
 };
 
@@ -20,13 +20,16 @@ export const SectionHeader = ({
     <div className="flex justify-between items-center align-middle">
       <SectionHeading className="mb-12">{title}</SectionHeading>
       <div className="mb-12">
-        <Button
+        {buttonLabel && onButtonClick && (
+          <Button
           variant="outline"
           className="hover:underline text-saloon-brown uppercase"
           onClick={onButtonClick}
         >
           {buttonLabel}
         </Button>
+        )}
+        
       </div>
     </div>
   );
