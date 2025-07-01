@@ -2,13 +2,13 @@
 
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { useState } from "react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Autoplay, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "./custom.css";
-import Link from "next/link";
 
 export function HeroSection() {
   const [slideIndex, setSlideIndex] = useState(0);
@@ -43,7 +43,7 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="container mx-auto relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-900"
+      className="container mx-auto relative min-[80vh] flex items-center justify-center overflow-hidden bg-gray-900"
     >
       {/* Top Banner */}
       <div className="absolute top-0 w-full z-20 left-0">
@@ -58,60 +58,37 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Background Swiper Image Slider */}
-      <div className="absolute top-0 left-0 w-full h-full z-0">
-        <Swiper
-          modules={[Autoplay, Pagination]}
-          autoplay={{ delay: 5000, disableOnInteraction: false }}
-          loop
-          pagination={{ clickable: true }}
-          onSlideChange={(swiper) => setSlideIndex(swiper.realIndex)}
-          spaceBetween={30}
-          slidesPerView={1}
-          className="h-full swiper-custom"
-        >
-          {slides.map((slide, i) => (
-            <SwiperSlide key={i}>
-              <motion.img
-                src={slide.image}
-                alt={`Slide ${i + 1}`}
-                initial={{ filter: "blur(10px)", scale: 1.05 }}
-                animate={{ filter: "blur(0px)", scale: 1 }}
-                transition={{ duration: 1 }}
-                className="w-full h-full object-cover bg-[url('/images/hero-overlay.jpg')]"
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-
-        {/* Lens Flash Overlay */}
-        <motion.div
-          key={slideIndex}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: [0, 0.4, 0] }}
-          transition={{ duration: 1.2 }}
-          className="absolute top-0 left-0 w-full h-full z-20 pointer-events-none bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.5),_transparent)]"
-        />
-      </div>
-
-      {/* Content Slider */}
-      <div className="relative z-10 text-left text-white max-w-7xl mx-auto w-full px-4">
-        <Swiper
-          modules={[Autoplay]}
-          autoplay={{ delay: 5000, disableOnInteraction: false }}
-          loop
-          spaceBetween={30}
-          slidesPerView={1}
-        >
-          {slides.map((slide, i) => (
-            <SwiperSlide key={i}>
-              <motion.div
-                key={slideIndex}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="max-w-2xl"
-              >
+      {/* Background Swiper Image and Content Slider */}
+      <Swiper
+        modules={[Autoplay, Pagination]}
+        autoplay={{ delay: 5000, disableOnInteraction: false }}
+        loop
+        pagination={{ clickable: true }}
+        onSlideChange={(swiper) => setSlideIndex(swiper.realIndex)}
+        spaceBetween={0}
+        slidesPerView={1}
+        className="h-[60vh] swiper-custom relative"
+      >
+        {slides.map((slide, i) => (
+          <SwiperSlide key={i}>
+            {/* Image Slide */}
+            <motion.img
+              src={slide.image}
+              alt={`Slide ${i + 1}`}
+              initial={{ filter: "blur(10px)", scale: 1.05 }}
+              animate={{ filter: "blur(0px)", scale: 1 }}
+              transition={{ duration: 1 }}
+              className="w-full h-full object-cover bg-[url('/images/hero-overlay.jpg')]"
+            />
+            {/* Content Slide */}
+            <motion.div
+              key={slideIndex}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="absolute top-5 left-0 w-full h-full flex items-center justify-star z-10 text-left text-white max-w-7xl px-8"
+            >
+              <div className="max-w-2xl">
                 <h1 className="font-gilroy-bold text-5xl md:text-6xl lg:text-7xl mb-6 leading-tight mt-0">
                   <span className="heading-sacramento text-4xl md:text-7xl text-[#FFDFC9] -mt-4">
                     {slide.title}
@@ -130,30 +107,29 @@ export function HeroSection() {
                   {slide.description}
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Link
-                    href="/explore-saloons">
-                  <Button
-                    size="lg"
-                    className="bg-saloon-brown hover:bg-saloon-dark-brown text-white px-8 py-4 text-lg font-gilroy-medium uppercase"
-                  >
-                    Explore Now
-                  </Button>
+                  <Link href="/explore-saloons">
+                    <Button
+                      size="lg"
+                      className="bg-saloon-brown hover:bg-saloon-dark-brown text-white px-8 py-4 text-lg font-gilroy-medium uppercase"
+                    >
+                      Explore Now
+                    </Button>
                   </Link>
                   <Link href="/booking">
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="bg-white border border-saloon-brown hover:bg-saloon-dark-brown text-saloon-brown px-8 py-4 text-lg font-gilroy-medium"
-                  >
-                    Book Now
-                  </Button>
+                    <Button
+                      variant="outline"
+                      size="lg"
+                      className="bg-white border border-saloon-brown hover:bg-saloon-dark-brown text-saloon-brown px-8 py-4 text-lg font-gilroy-medium"
+                    >
+                      Book Now
+                    </Button>
                   </Link>
                 </div>
-              </motion.div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
+              </div>
+            </motion.div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </section>
   );
 }
