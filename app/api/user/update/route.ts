@@ -1,16 +1,20 @@
 import { NextResponse } from 'next/server';
-import { users } from '@/lib/database';
+import { users, updateUser } from '@/lib/database';
 
 export async function PUT(request: Request) {
   const { id, firstName, lastName, email, phone } = await request.json();
 
-  const userIndex = users.findIndex(user => user.id === id);
+  const existingUser = users.find(user => user.id === id);
 
-  if (userIndex === -1) {
+  if (!existingUser) {
     return NextResponse.json({ error: 'User not found' }, { status: 404 });
   }
 
-  users[userIndex] = { ...users[userIndex], firstName, lastName, email, phone };
+  const updatedUser = updateUser({ ...existingUser, firstName, lastName, email, phone });
 
-  return NextResponse.json(users[userIndex], { status: 200 });
+  if (!updatedUser) {
+    return NextResponse.json({ error: 'Failed to update user' }, { status: 500 });
+  }
+
+  return NextResponse.json(updatedUser, { status: 200 });
 }

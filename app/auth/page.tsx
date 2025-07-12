@@ -14,12 +14,14 @@ import {
   Facebook,
   Lock,
   Mail,
+  MoveLeft,
   Phone,
   User,
 } from "lucide-react";
 import { useState } from "react";
+import Link from "next/link";
 
-import { users } from "@/lib/database";
+
 import { useRouter } from "next/navigation";
 
 import Cookies from "js-cookie";
@@ -36,13 +38,24 @@ export default function AuthPage() {
   const [error, setError] = useState("");
   const router = useRouter();
 
-  const handleLogin = () => {
-    const user = users.find((user) => user.email === email && user.password === password);
-    if (user) {
-      Cookies.set("user", JSON.stringify(user));
-      router.push("/dashboard");
-    } else {
-      setError("Invalid email or password");
+  const handleLogin = async () => {
+    try {
+      const response = await fetch("/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+      const data = await response.json();
+      if (response.ok) {
+        Cookies.set("user", JSON.stringify(data));
+        router.push("/dashboard");
+      } else {
+        setError(data.error || "Login failed");
+      }
+    } catch (err) {
+      setError("An error occurred during login");
     }
   };
 
@@ -81,6 +94,14 @@ export default function AuthPage() {
   return (
     <main className="min-h-screen bg-gray-50">
         <div className="relative flex min-h-screen">
+        <div className="absolute top-8 left-8 z-10">
+            <Button asChild variant="outline" className="bg-white/80 backdrop-blur-sm">
+              <Link href="/">
+                <MoveLeft className="mr-2 h-4 w-4" />
+                Back to Home
+              </Link>
+            </Button>
+          </div>
           {/* Left Side - Form */}
           <div className="w-full md:w-1/2 flex flex-col justify-center items-center p-8 lg:p-16">
             <div className="w-full max-w-md">
